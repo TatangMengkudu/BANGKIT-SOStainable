@@ -50,7 +50,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Let's Together Realize a Cleaner and Healthier Environment for Future Generations"
-        android:fontFamily="@font/poppins"
+        android:fontFamily="@font/poppins_medium"
         android:textColor="@color/textGreyColor"
         app:layout_constraintTop_toBottomOf="@id/tv_signup"
         app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"

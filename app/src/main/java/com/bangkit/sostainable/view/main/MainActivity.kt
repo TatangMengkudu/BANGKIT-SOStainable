@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.sostainable.R
 import com.bangkit.sostainable.databinding.ActivityMainBinding
@@ -27,7 +26,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_profile
         ).build()
 
-        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 }

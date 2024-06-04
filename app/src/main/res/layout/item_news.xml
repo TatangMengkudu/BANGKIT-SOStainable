@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    app:cardCornerRadius="8dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iv_news"
+            app:srcCompat="@drawable/iv_news"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/iv_user"
+            android:id="@+id/iv_user"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/iv_news"
+            app:layout_constraintTop_toBottomOf="@+id/iv_news"/>
+
+        <TextView
+            android:id="@+id/tv_titleNews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Kegiatan Bersih Lingkungan Jakarta..."
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:maxLines="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toTopOf="@+id/iv_user"
+            app:layout_constraintStart_toEndOf="@+id/iv_user"
+            app:layout_constraintEnd_toEndOf="@id/iv_news"/>
+
+        <TextView
+            android:id="@+id/tv_descNews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna dolor sit amet, consectetur adipiscing elit, dolor sit amet..."
+            android:layout_marginTop="5dp"
+            android:maxLines="3"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleNews"
+            app:layout_constraintStart_toStartOf="@id/tv_titleNews"
+            app:layout_constraintEnd_toEndOf="@id/tv_titleNews"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

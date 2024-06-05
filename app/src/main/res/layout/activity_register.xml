@@ -197,49 +197,63 @@
             app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
             app:layout_constraintTop_toBottomOf="@+id/formConfirmPassword" />
 
-        <View
-            android:id="@+id/dividerLeft"
-            android:layout_width="160dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/registerButtonGoogle"
-            app:layout_constraintStart_toStartOf="@+id/registerButton"
-            app:layout_constraintTop_toBottomOf="@+id/registerButton" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/layoutBreak"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="or"
-            android:textSize="17sp"
-            android:fontFamily="@font/poppins_medium"
-            app:layout_constraintEnd_toStartOf="@+id/dividerRight"
-            app:layout_constraintStart_toEndOf="@+id/dividerLeft"
-            app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+            app:layout_constraintTop_toBottomOf="@+id/registerButton">
 
-        <View
-            android:id="@+id/dividerRight"
-            android:layout_width="160dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/registerButton"
-            app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+            <View
+                android:id="@+id/dividerLeft"
+                android:layout_width="170dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/loginButtonGoogle"
+                app:layout_constraintStart_toStartOf="@+id/loginButton"
+                app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="or"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="17sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/dividerRight"
+                app:layout_constraintStart_toEndOf="@+id/dividerLeft"
+                app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+            <View
+                android:id="@+id/dividerRight"
+                android:layout_width="170dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/loginButton"
+                app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/registerButtonGoogle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/custom_button_stroke"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
             app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-            app:layout_constraintTop_toBottomOf="@+id/dividerLeft">
+            app:layout_constraintTop_toBottomOf="@+id/layoutBreak">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -262,6 +276,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="6dp"
             app:layout_constraintTop_toBottomOf="@id/registerButtonGoogle"
             app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"

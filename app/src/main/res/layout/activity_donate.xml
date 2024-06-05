@@ -139,7 +139,7 @@
         android:id="@+id/rg_paymentMethods"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
         app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
         app:layout_constraintTop_toBottomOf="@+id/tv_payment">
@@ -188,7 +188,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginVertical="15dp"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/textGreyColor"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -235,7 +235,7 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginVertical="15dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/textGreyColor"
         app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
         app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
         app:layout_constraintTop_toBottomOf="@+id/rg_paymentMethods" />

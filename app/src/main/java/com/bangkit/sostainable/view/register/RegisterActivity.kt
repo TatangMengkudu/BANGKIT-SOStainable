@@ -14,9 +14,26 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupAction()
+    }
+
+    private fun setupAction() {
+        // MOVE TO LOGIN PAGE
+        moveLogin()
+    }
+
+    private fun moveLogin() {
+        // WITH BUTTON
         binding.registerButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
+            finish()
+        }
+
+        // WITH TEXTVIEW
+        binding.tvLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }

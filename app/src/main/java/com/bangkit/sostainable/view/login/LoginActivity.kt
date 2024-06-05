@@ -14,15 +14,29 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupAction()
+    }
+
+    private fun setupAction() {
+        // MOVE TO HOME PAGE
+        moveHomepage()
+
+        // MOVE TO REGISTER PAGE
+        moveRegister()
+    }
+
+    private fun moveHomepage() {
         binding.loginButton.setOnClickListener {
             intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
+            finish()
         }
+    }
 
+    private fun moveRegister() {
         binding.tvRegister.setOnClickListener {
-            intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
-
     }
 }

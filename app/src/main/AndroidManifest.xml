@@ -19,17 +19,20 @@
             android:name=".view.main.profile.ProfileFragment"
             android:exported="false" />
         <activity
-            android:name=".view.main.news.NewsActivity"
+            android:name=".view.main.bookmark.BookmarkActivity"
             android:exported="false" />
         <activity
             android:name=".view.main.donate.DonateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.main.create.CreateActivity"
             android:exported="false" />
         <activity
             android:name=".view.main.detail.DetailActivity"
             android:exported="false" />
         <activity
             android:name=".view.login.LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,5 +49,4 @@
             android:name=".view.main.MainActivity"
             android:exported="false" />
     </application>
-
 </manifest>

@@ -42,7 +42,7 @@
             android:id="@+id/textView3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_bold"
             android:text="Image"
             android:textSize="15sp"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
@@ -80,6 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add +"
+                    android:fontFamily="@font/poppins"
                     android:layout_gravity="center"/>
             </LinearLayout>
             <LinearLayout
@@ -104,6 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add +"
+                    android:fontFamily="@font/poppins"
                     android:layout_gravity="center"/>
             </LinearLayout>
             <LinearLayout
@@ -128,18 +130,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add +"
+                    android:fontFamily="@font/poppins"
                     android:layout_gravity="center"/>
             </LinearLayout>
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Title"
             android:textSize="15sp"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_bold"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
             app:layout_constraintTop_toBottomOf="@+id/ly_addImage"/>
@@ -158,17 +161,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Title"
+                android:fontFamily="@font/poppins"
                 android:textColorHint="@color/textGreyColor"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/tv_desc"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Description"
             android:textSize="15sp"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_bold"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
             app:layout_constraintTop_toBottomOf="@+id/formTitle"/>
@@ -187,6 +191,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:hint="Description"
+                android:fontFamily="@font/poppins"
                 android:textColorHint="@color/textGreyColor"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -200,23 +205,22 @@
             app:layout_constraintTop_toBottomOf="@+id/formDesc">
             <TextView
                 android:id="@+id/tv_startDate"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Start Date"
                 android:textSize="15sp"
-                android:fontFamily="@font/poppins_medium"/>
+                android:fontFamily="@font/poppins_bold"/>
             <TextView
                 android:id="@+id/tv_endDate"
                 android:layout_weight="1"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="End Date"
                 android:textSize="15sp"
-                android:fontFamily="@font/poppins_medium"/>
-
+                android:fontFamily="@font/poppins_bold"/>
         </LinearLayout>
 
         <LinearLayout
@@ -224,7 +228,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
             app:layout_constraintTop_toBottomOf="@+id/ly_date">
@@ -280,12 +283,12 @@
 
         <TextView
             android:id="@+id/tv_donate"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="How many donations you want to achieve?"
             android:textSize="15sp"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_bold"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
             app:layout_constraintTop_toBottomOf="@+id/ly_formDate"/>
@@ -304,17 +307,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Rp 10.000.000"
+                android:fontFamily="@font/poppins"
                 android:textColorHint="@color/textGreyColor"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/tv_volunteer"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="How many volunteer you want?"
             android:textSize="15sp"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_bold"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
             app:layout_constraintTop_toBottomOf="@+id/formDonate"/>
@@ -333,6 +337,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="200"
+                android:fontFamily="@font/poppins"
                 android:textColorHint="@color/textGreyColor"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -341,15 +346,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/detailButtonDonate"
-            android:textSize="15sp"
-            android:textColor="@color/colorPrimary"
+            android:text="Upload"
+            android:textSize="17sp"
+            android:textColor="@color/white"
             android:background="@drawable/custom_button"
-            app:backgroundTint="@color/yellow"
+            app:backgroundTint="@color/black"
             android:fontFamily="@font/poppins_bold"
             app:layout_constraintTop_toBottomOf="@+id/formVolunteer"
             app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

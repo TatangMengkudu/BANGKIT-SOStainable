@@ -11,4 +11,5 @@
     <string name="donateTitle">Donate</string>
     <string name="detailButtonJoinVolunteer">Join Volunteer</string>
     <string name="detailButtonDonate">Donate $</string>
+    <string name="google_logo_description">Google Icon</string>
 </resources>

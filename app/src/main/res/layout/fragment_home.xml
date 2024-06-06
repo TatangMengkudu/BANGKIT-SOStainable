@@ -48,7 +48,7 @@
                 android:background="@drawable/custom_button_stroke"
                 android:textColor="@color/textGreyColor"
                 android:drawableStart="@drawable/search_icon"
-                android:drawablePadding="10dp"
+                android:drawablePadding="8dp"
                 android:inputType="textEmailAddress"/>
         </com.google.android.material.textfield.TextInputLayout>
 

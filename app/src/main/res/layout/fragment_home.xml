@@ -31,38 +31,23 @@
                 app:titleTextColor="@color/white" />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/searchBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/appBar">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Search location"
-                android:fontFamily="@font/poppins"
-                android:background="@drawable/custom_button_stroke"
-                android:textColor="@color/textGreyColor"
-                android:drawableStart="@drawable/search_icon"
-                android:drawablePadding="8dp"
-                android:inputType="textEmailAddress"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.search.SearchView
-            android:id="@+id/searchView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
             android:hint="Search location"
-            app:layout_anchor="@id/searchBar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </com.google.android.material.search.SearchView>
+            android:paddingStart="10dp"
+            android:textColor="@color/textGreyColor"
+            android:fontFamily="@font/poppins"
+            android:drawableStart="@drawable/search_icon"
+            android:drawablePadding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/rv_news"
+            app:layout_constraintEnd_toEndOf="@+id/rv_news"
+            android:background="@drawable/custom_edit_text"
+            app:layout_constraintTop_toBottomOf="@+id/appBar"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_news"

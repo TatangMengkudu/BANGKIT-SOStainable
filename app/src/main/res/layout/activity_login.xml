@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.login.LoginActivity">
@@ -43,7 +42,7 @@
         android:id="@+id/tv_signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
+        android:text="@string/loginSignIn"
         android:fontFamily="@font/poppins_bold"
         android:textSize="30sp"
         app:layout_constraintTop_toTopOf="@+id/guidelineTop"
@@ -54,11 +53,12 @@
         android:id="@+id/tv_descSignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome back to SOStainable"
         android:fontFamily="@font/poppins_medium"
+        android:text="@string/loginTitleWelcome"
         android:textColor="@color/textGreyColor"
         app:layout_constraintStart_toStartOf="@+id/tv_signin"
-        app:layout_constraintTop_toBottomOf="@+id/tv_signin" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_signin"
+        tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/formEmail"
@@ -74,8 +74,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email or username"
-            android:inputType="textEmailAddress"/>
+            android:hint="@string/hintEmailorUsername"
+            android:inputType="textEmailAddress"
+            tools:ignore="VisualLintTextFieldSize" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -94,8 +95,10 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/visibility_icon"
             android:drawableTint="@color/black"
-            android:hint="Password"
-            android:inputType="textPassword"/>
+            android:hint="@string/hintPassword"
+            android:inputType="textPassword"
+            tools:ignore="VisualLintTextFieldSize"
+            tools:targetApi="m" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -105,14 +108,15 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Sign In"
-        android:fontFamily="@font/poppins_medium"
         android:background="@drawable/custom_button"
-        app:backgroundTint="@color/black"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/loginSignIn"
         android:textSize="16sp"
+        app:backgroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
         app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-        app:layout_constraintTop_toBottomOf="@+id/formPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/formPassword"
+        tools:ignore="VisualLintButtonSize,DuplicateSpeakableTextCheck" />
 
     <LinearLayout
         android:id="@+id/layoutBreak"
@@ -139,7 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="or"
+            android:text="@string/or"
             android:fontFamily="@font/poppins_medium"
             android:textSize="17sp"
             android:layout_marginStart="10dp"
@@ -155,7 +159,8 @@
             android:layout_marginTop="20dp"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/loginButton"
-            app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+            app:layout_constraintTop_toBottomOf="@+id/loginButton"
+            tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
     <LinearLayout
@@ -181,7 +186,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign In with Google"
+            android:text="@string/sign_in_with_google"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_medium"
@@ -203,14 +208,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don’t have an account?"
+            android:text="@string/don_t_have_an_account"
             android:fontFamily="@font/poppins"/>
 
         <TextView
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign up Now"
+            android:text="@string/sign_up_now"
             android:fontFamily="@font/poppins_bold"
             android:layout_marginStart="4dp"/>
     </LinearLayout>

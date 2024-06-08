@@ -13,7 +13,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineTop"
@@ -36,37 +36,15 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="20dp" />
 
-            <LinearLayout
-                android:id="@+id/buttonBack"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintTop_toBottomOf="@+id/guidelineTop"
-                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
-                app:layout_constraintEnd_toEndOf="@+id/guidelineRight">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Back"
-                    android:drawableStart="@drawable/arrow_back"
-                    android:drawableTint="@color/black"
-                    android:drawablePadding="4dp"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/poppins_bold"/>
-            </LinearLayout>
-
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="@string/name"
                 android:textSize="15sp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/poppins_bold"
-                app:layout_constraintTop_toBottomOf="@id/buttonBack"
+                app:layout_constraintTop_toBottomOf="@id/guidelineTop"
                 app:layout_constraintStart_toStartOf="@id/guidelineLeft" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -82,7 +60,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Bang Jefri Nichole"
+                    android:hint="@string/bang_jefri_nichole"
                     android:fontFamily="@font/poppins"
                     android:textColor="@color/textGreyColor"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -96,7 +74,8 @@
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/formName"
-                app:layout_constraintStart_toStartOf="@id/guidelineLeft" />
+                app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+                tools:ignore="HardcodedText" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/formEmail"
@@ -111,7 +90,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="bangjef@bangkitacademy.id"
+                    android:hint="@string/bangjef_bangkitacademy_id"
                     android:fontFamily="@font/poppins"
                     android:textColor="@color/textGreyColor"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -120,7 +99,7 @@
                 android:id="@+id/tv_tanggal_lahir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tanggal Lahir"
+                android:text="@string/tanggal_lahir"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
@@ -142,14 +121,15 @@
                     android:layout_height="wrap_content"
                     android:hint="08-20-1990"
                     android:fontFamily="@font/poppins"
-                    android:textColor="@color/textGreyColor"/>
+                    android:textColor="@color/textGreyColor"
+                    tools:ignore="HardcodedText" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tv_nomor_rekening"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nomor Rekening"
+                android:text="@string/nomor_rekening"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
@@ -169,16 +149,17 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="88992288833"
                     android:fontFamily="@font/poppins"
-                    android:textColor="@color/textGreyColor"/>
+                    android:hint="88992288833"
+                    android:textColor="@color/textGreyColor"
+                    tools:ignore="HardcodedText,DuplicateSpeakableTextCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tv_nama_bank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Bank"
+                android:text="@string/nama_bank"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
@@ -200,7 +181,8 @@
                     android:layout_height="wrap_content"
                     android:hint="88992288833"
                     android:fontFamily="@font/poppins"
-                    android:textColor="@color/textGreyColor"/>
+                    android:textColor="@color/textGreyColor"
+                    tools:ignore="HardcodedText" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -212,7 +194,8 @@
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/formNamaBank"
-                app:layout_constraintStart_toStartOf="@id/guidelineLeft" />
+                app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+                tools:ignore="HardcodedText" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/formPassword"
@@ -227,17 +210,18 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="********"
+                    android:drawableEnd="@drawable/visibility_icon"
                     android:fontFamily="@font/poppins"
+                    android:hint="********"
                     android:textColor="@color/textGreyColor"
-                    android:drawableEnd="@drawable/visibility_icon"/>
+                    tools:ignore="HardcodedText,DuplicateSpeakableTextCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tv_confirm_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Confirm Password"
+                android:text="@string/confirm_password"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
@@ -260,14 +244,15 @@
                     android:hint="********"
                     android:fontFamily="@font/poppins"
                     android:textColor="@color/textGreyColor"
-                    android:drawableEnd="@drawable/visibility_icon"/>
+                    android:drawableEnd="@drawable/visibility_icon"
+                    tools:ignore="HardcodedText" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/button_update_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Update Profile"
+                android:text="@string/update_profile"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="17sp"
@@ -283,18 +268,19 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Log Out"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="17sp"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
-                app:backgroundTint="@color/black"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/custom_button"
-                app:layout_constraintTop_toBottomOf="@id/button_update_profile"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/log_out"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:backgroundTint="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guidelineRight"
                 app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-                app:layout_constraintEnd_toEndOf="@id/guidelineRight" />
+                app:layout_constraintTop_toBottomOf="@id/button_update_profile" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </ScrollView>

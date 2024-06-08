@@ -4,11 +4,11 @@
     <item
         android:id="@+id/navigation_bookmark"
         android:icon="@drawable/bookmark_icon"
-        android:title="Bookmark"
+        android:title="@string/bookmark"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/navigation_notification"
         android:icon="@drawable/notification_icon"
-        android:title="Notification"
+        android:title="@string/notification"
         app:showAsAction="ifRoom"/>
 </menu>

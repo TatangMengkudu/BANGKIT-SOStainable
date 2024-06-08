@@ -50,6 +50,7 @@
             app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight">
 
             <TextView
+                android:id="@+id/ic_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Back"
@@ -364,18 +365,66 @@
                 android:textColorHint="@color/textGreyColor"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:id="@+id/ly_checkLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
+            app:layout_constraintTop_toBottomOf="@+id/formVolunteer">
+
+            <TextView
+                android:id="@+id/tv_Location"
+                android:layout_height="wrap_content"
+                android:text="@string/location"
+                android:layout_weight="2"
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_width="0dp" />
+            <TextView
+                android:id="@+id/tv_getLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/include_location"
+                android:fontFamily="@font/poppins"/>
+            <CheckBox
+                android:id="@+id/locationCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/formLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+            app:layout_constraintTop_toBottomOf="@+id/ly_checkLocation">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/location"
+                android:fontFamily="@font/poppins"
+                android:textColorHint="@color/textGreyColor"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/button_donate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Upload"
+            android:text="@string/upload"
             android:textSize="17sp"
             android:textColor="@color/white"
             android:background="@drawable/custom_button"
             app:backgroundTint="@color/black"
             android:fontFamily="@font/poppins_bold"
-            app:layout_constraintTop_toBottomOf="@+id/formVolunteer"
+            app:layout_constraintTop_toBottomOf="@+id/formLocation"
             app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft" />
     </androidx.constraintlayout.widget.ConstraintLayout>

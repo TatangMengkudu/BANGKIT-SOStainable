@@ -23,6 +23,28 @@
             app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/iv_news" />
 
+        <ImageView
+            android:id="@+id/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/detailDesc"
+            android:src="@drawable/arrow_back_white"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ic_bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/detailDesc"
+            android:src="@drawable/bookmark_icon_white"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
@@ -44,7 +66,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.045"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:ignore="TextSizeCheck" />
         </LinearLayout>
 
         <TextView
@@ -68,28 +91,32 @@
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="@string/detailLocation"
             android:fontFamily="@font/poppins"
+            android:text="@string/detailLocation"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateEvent" />
+            app:layout_constraintTop_toBottomOf="@+id/dateEvent"
+            tools:ignore="TextContrastCheck" />
+
         <TextView
             android:id="@+id/locationEvent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="@string/detailLocationEvent"
             android:fontFamily="@font/poppins"
+            android:text="@string/detailLocationEvent"
             android:textColor="@color/textGreyColor"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:ignore="TextContrastCheck" />
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
@@ -105,11 +132,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:orientation="horizontal"
+            android:paddingStart="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider" />
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/detailDescription"
@@ -123,7 +150,8 @@
             android:text="@string/detailDesc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageCarousel" />
+            app:layout_constraintTop_toBottomOf="@+id/imageCarousel"
+            tools:ignore="UnusedAttribute,VisualLintLongText" />
 
         <Button
             android:id="@+id/joinVolunteerButton"
@@ -134,12 +162,12 @@
             android:text="@string/detailButtonJoinVolunteer"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/poppins_bold"
-            android:textColor="@android:color/white"
             app:backgroundTint="@color/black"
             app:layout_constraintTop_toBottomOf="@id/detailDescription"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/donateButton"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintWidth_percent="0.45"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/donateButton"
@@ -155,7 +183,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/joinVolunteerButton"
             app:layout_constraintTop_toBottomOf="@id/detailDescription"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintWidth_percent="0.45"
+            tools:ignore="VisualLintButtonSize" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

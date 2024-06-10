@@ -13,7 +13,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineTop"
@@ -179,7 +180,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="88992288833"
+                    android:hint="Mandiri"
                     android:fontFamily="@font/poppins"
                     android:textColor="@color/textGreyColor"
                     tools:ignore="HardcodedText" />

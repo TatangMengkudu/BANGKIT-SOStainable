@@ -23,7 +23,7 @@
             app:layout_constraintBottom_toTopOf="@+id/iv_user">
 
             <ImageView
-                android:id="@+id/iv_news"
+                android:id="@+id/iv_event"
                 android:contentDescription="@string/detailDesc"
                 app:srcCompat="@drawable/iv_news"
                 android:layout_width="match_parent"
@@ -41,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cardImageNews"/>
 
         <TextView
-            android:id="@+id/tv_titleNews"
+            android:id="@+id/tv_titleEvent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/kegiatan_bersih_lingkungan_jakarta"
@@ -54,15 +54,15 @@
             app:layout_constraintEnd_toEndOf="@id/cardImageNews"/>
 
         <TextView
-            android:id="@+id/tv_descNews"
+            android:id="@+id/tv_descEvent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/card_description_image"
             android:layout_marginTop="5dp"
             android:maxLines="3"
-            app:layout_constraintTop_toBottomOf="@id/tv_titleNews"
-            app:layout_constraintStart_toStartOf="@id/tv_titleNews"
-            app:layout_constraintEnd_toEndOf="@id/tv_titleNews"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleEvent"
+            app:layout_constraintStart_toStartOf="@id/tv_titleEvent"
+            app:layout_constraintEnd_toEndOf="@id/tv_titleEvent"
             tools:ignore="VisualLintLongText" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

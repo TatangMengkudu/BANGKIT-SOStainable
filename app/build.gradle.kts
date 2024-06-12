@@ -1,6 +1,15 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-parcelize")
+}
+
+val apiPropertiesFile = rootProject.file("local.properties")
+val apiProperties = Properties()
+apiPropertiesFile.inputStream().use { inputStream ->
+    apiProperties.load(inputStream)
 }
 
 android {
@@ -13,6 +22,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        buildConfigField("String", "BASE_URL", apiProperties["BASE_URL"].toString())
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,6 +45,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -57,4 +68,19 @@ dependencies {
 
     // CircleImageView
     implementation(libs.circleimageview)
+
+    // Glide
+    implementation(libs.glide)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+
+    // ViewModel and LiveData
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
+
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
 }

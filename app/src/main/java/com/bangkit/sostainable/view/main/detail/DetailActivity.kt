@@ -31,4 +31,8 @@ class DetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    companion object {
+        const val DATA_EVENT = "data_event"
+    }
 }

@@ -14,16 +14,16 @@ data class EventResponse(
 	val status: Int? = null
 )
 
-data class 	DataItem(
+data class DataItem(
 
 	@field:SerializedName("judul_event")
 	val judulEvent: String? = null,
 
-	@field:SerializedName("deskripsi_event")
-	val deskripsiEvent: String? = null,
-
 	@field:SerializedName("id_event")
 	val idEvent: String? = null,
+
+	@field:SerializedName("deskripsi")
+	val deskripsi: String? = null,
 
 	@field:SerializedName("pembuat_event")
 	val pembuatEvent: String? = null,

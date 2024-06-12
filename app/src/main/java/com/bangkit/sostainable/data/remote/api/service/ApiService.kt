@@ -1,8 +1,10 @@
 package com.bangkit.sostainable.data.remote.api.service
 
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
+import com.bangkit.sostainable.data.remote.response.event.EventResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiService {
@@ -23,4 +25,7 @@ interface ApiService {
         @Field("username") username: String,
         @Field("password") password: String
     ): AuthResponse
+
+    @GET
+    suspend fun getEvents(): EventResponse
 }

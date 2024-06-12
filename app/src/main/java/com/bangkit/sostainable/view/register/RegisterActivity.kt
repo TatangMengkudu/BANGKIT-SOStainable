@@ -61,14 +61,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun moveLogin() {
-        // WITH BUTTON
-        binding.registerButton.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
-            finish()
-        }
-
         // WITH TEXTVIEW
         binding.tvLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -115,7 +107,7 @@ class RegisterActivity : AppCompatActivity() {
             else -> true
         }
 
-        if (usernameValid && emailValid && passwordValid && confirmPassValid) {
+        if (usernameValid && emailValid && passwordValid == confirmPassValid) {
             val user = User(
                 username = username,
                 email = email,
@@ -131,7 +123,10 @@ class RegisterActivity : AppCompatActivity() {
                     }
                     is Result.Success -> {
                         showMessage(result.data.message!!)
-                        moveLogin()
+                        val intent = Intent(this, LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                        finish()
                         binding.progressBar.visibility = View.GONE
                     }
                     is Result.Error -> {

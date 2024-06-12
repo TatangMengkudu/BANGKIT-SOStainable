@@ -8,7 +8,7 @@ data class User(
     val username: String? = null,
     val email: String? = null,
     val tanggalLahir: String? = null,
-    val noRekening: String? = null,
+    val nomorRekening: String? = null,
     val namaBank: String? = null,
     val password: String? = null,
 ): Parcelable

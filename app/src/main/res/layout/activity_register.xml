@@ -68,6 +68,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_descSignup">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Username"
@@ -86,6 +87,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/formUsername">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
@@ -104,6 +106,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/formEmail">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtTglLahir"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Tanggal Lahir"
@@ -122,6 +125,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/formTanggalLahir">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtNoRekening"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nomor Rekening"
@@ -140,6 +144,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/formNomorRekening">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtNamaBank"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nama Bank"
@@ -158,6 +163,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/formNamaBank">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
@@ -177,6 +183,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/formPassword">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Confirm Password"

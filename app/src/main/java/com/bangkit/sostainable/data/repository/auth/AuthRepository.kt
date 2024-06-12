@@ -1,6 +1,5 @@
 package com.bangkit.sostainable.data.repository.auth
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.bangkit.sostainable.data.local.datastore.UserPreference
@@ -24,7 +23,7 @@ class AuthRepository (
                     user.username!!,
                     user.email!!,
                     user.tanggalLahir!!,
-                    user.noRekening!!,
+                    user.nomorRekening!!,
                     user.namaBank!!,
                     user.password!!
                 )

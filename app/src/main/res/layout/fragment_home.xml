@@ -46,8 +46,8 @@
             android:importantForAutofill="no"
             android:paddingStart="10dp"
             android:textColor="@color/textGreyColor"
-            app:layout_constraintEnd_toEndOf="@+id/rv_news"
-            app:layout_constraintStart_toStartOf="@+id/rv_news"
+            app:layout_constraintEnd_toEndOf="@+id/rv_events"
+            app:layout_constraintStart_toStartOf="@+id/rv_events"
             app:layout_constraintTop_toBottomOf="@+id/appBar"
             tools:ignore="HardcodedText,RtlSymmetry,TextContrastCheck,TextFields,VisualLintTextFieldSize" />
 

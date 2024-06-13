@@ -56,12 +56,4 @@ class HomeFragment : Fragment() {
     private fun showSelectedEvent(event: DataItem){
         Toast.makeText(requireContext(), event.judulEvent, Toast.LENGTH_SHORT).show()
     }
-
-    private fun showMessage(message: String) {
-        Toast.makeText(
-            requireContext(),
-            message,
-            Toast.LENGTH_SHORT
-        ).show()
-    }
 }

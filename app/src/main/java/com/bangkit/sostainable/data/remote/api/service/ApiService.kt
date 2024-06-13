@@ -6,6 +6,7 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiService {
     @FormUrlEncoded
@@ -26,6 +27,9 @@ interface ApiService {
         @Field("password") password: String
     ): AuthResponse
 
-    @GET
-    suspend fun getEvents(): EventResponse
+    @GET("event")
+    suspend fun getEvents(
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): EventResponse
 }

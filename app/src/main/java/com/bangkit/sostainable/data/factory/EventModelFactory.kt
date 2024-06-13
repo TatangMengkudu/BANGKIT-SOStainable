@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sostainable.data.injection.InjectionEvent
 import com.bangkit.sostainable.data.repository.event.EventRepository
 import com.bangkit.sostainable.view.main.home.HomeViewModel
-import com.bangkit.sostainable.view.register.RegisterViewModel
 
 class EventModelFactory(
     private val eventRepository: EventRepository
@@ -15,7 +14,7 @@ class EventModelFactory(
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             // TODO: HomeViewModel
-            modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(eventRepository) as T
             }
             // TODO: DetailViewModel

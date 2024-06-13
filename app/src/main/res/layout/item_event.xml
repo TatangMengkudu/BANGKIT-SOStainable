@@ -27,7 +27,7 @@
                 android:contentDescription="@string/detailDesc"
                 app:srcCompat="@drawable/iv_news"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:scaleType="centerCrop"/>
         </androidx.cardview.widget.CardView>
 

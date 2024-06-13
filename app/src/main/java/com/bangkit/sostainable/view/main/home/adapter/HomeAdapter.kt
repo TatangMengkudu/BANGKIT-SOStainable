@@ -3,17 +3,21 @@ package com.bangkit.sostainable.view.main.home.adapter
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.sostainable.data.remote.response.event.DataItem
 import com.bangkit.sostainable.databinding.ItemEventBinding
 import com.bangkit.sostainable.view.main.detail.DetailActivity
 import com.bumptech.glide.Glide
 
-class HomeAdapter : ListAdapter<DataItem, HomeAdapter.HomeViewHolder>(DIFF_CALLBACK) {
+class HomeAdapter : PagingDataAdapter<DataItem, HomeAdapter.HomeViewHolder>(DIFF_CALLBACK) {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val binding = ItemEventBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -22,7 +26,7 @@ class HomeAdapter : ListAdapter<DataItem, HomeAdapter.HomeViewHolder>(DIFF_CALLB
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val event = getItem(position)
-        holder.bind(event)
+        holder.bind(event!!)
         holder.itemView.setOnClickListener {
             onItemClickCallback.onItemClicked(event)
             val intentDetail = Intent(holder.itemView.context, DetailActivity::class.java)
@@ -48,7 +52,7 @@ class HomeAdapter : ListAdapter<DataItem, HomeAdapter.HomeViewHolder>(DIFF_CALLB
                 }
                 */
                 tvTitleEvent.text = event.judulEvent
-                tvDescEvent.text = event.deskripsiEvent
+                tvDescEvent.text = event.deskripsi
             }
         }
     }

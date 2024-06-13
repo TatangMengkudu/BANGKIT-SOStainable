@@ -1,30 +1,32 @@
 package com.bangkit.sostainable.data.repository.event
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.liveData
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.liveData
+import com.bangkit.sostainable.data.local.room.database.EventDatabase
+import com.bangkit.sostainable.data.paging.EventRemoteMediator
 import com.bangkit.sostainable.data.remote.api.service.ApiService
-import com.bangkit.sostainable.data.remote.response.event.EventMessageResponse
-import com.bangkit.sostainable.data.remote.response.event.EventResponse
-import com.bangkit.sostainable.data.utils.Result
-import com.google.gson.Gson
-import retrofit2.HttpException
+import com.bangkit.sostainable.data.remote.response.event.DataItem
 
 class EventRepository(
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val eventDatabase: EventDatabase
 ) {
     // TODO: Get All Event
-    suspend fun getEvents(): LiveData<Result<EventResponse>> {
-        return liveData {
-            emit(Result.Loading)
-            try {
-                val data = apiService.getEvents()
-                emit(Result.Success(data))
-            } catch (e: HttpException) {
-                val errorBody = e.response()?.errorBody()?.string()
-                val errorResponse = Gson().fromJson(errorBody, EventMessageResponse::class.java)
-                emit(Result.Error(errorResponse.message!!))
+    fun getEvents(): LiveData<PagingData<DataItem>> {
+        @OptIn(ExperimentalPagingApi::class)
+        return Pager(
+            config = PagingConfig(
+                pageSize = 5
+            ),
+            remoteMediator = EventRemoteMediator(apiService, eventDatabase),
+            pagingSourceFactory = {
+                eventDatabase.eventDao().getAllEvent()
             }
-        }
+        ).liveData
     }
 
     // TODO: Get Detail Event

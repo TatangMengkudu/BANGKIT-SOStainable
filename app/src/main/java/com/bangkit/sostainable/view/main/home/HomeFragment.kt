@@ -4,43 +4,64 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.bangkit.sostainable.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bangkit.sostainable.data.factory.EventModelFactory
+import com.bangkit.sostainable.data.remote.response.event.DataItem
+import com.bangkit.sostainable.databinding.FragmentHomeBinding
+import com.bangkit.sostainable.view.main.home.adapter.HomeAdapter
+import com.bangkit.sostainable.view.main.home.adapter.LoadingStateAdapter
 
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private lateinit var binding: FragmentHomeBinding
+    private val homeViewModel: HomeViewModel by viewModels {
+        EventModelFactory.getInstance(requireContext())
     }
+    private lateinit var adapter: HomeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        getEvents()
+    }
+
+    private fun getEvents() {
+        adapter = HomeAdapter()
+        binding.rvEvents.layoutManager = LinearLayoutManager(context)
+        binding.rvEvents.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter {
+                adapter.retry()
             }
+        )
+        homeViewModel.event.observe(viewLifecycleOwner) {
+            adapter.submitData(lifecycle, it)
+        }
+        adapter.setOnItemClickCallback(object : HomeAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: DataItem) {
+                showSelectedEvent(data)
+            }
+        })
+    }
+
+    private fun showSelectedEvent(event: DataItem){
+        Toast.makeText(requireContext(), event.judulEvent, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showMessage(message: String) {
+        Toast.makeText(
+            requireContext(),
+            message,
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

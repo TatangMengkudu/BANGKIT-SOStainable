@@ -2,6 +2,7 @@ package com.bangkit.sostainable.data.remote.api.service
 
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
 import com.bangkit.sostainable.data.remote.response.event.EventResponse
+import com.bangkit.sostainable.data.remote.response.profile.ProfileResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -32,4 +33,7 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("size") size: Int
     ): EventResponse
+
+    @GET("profile")
+    suspend fun profileUser(): ProfileResponse
 }

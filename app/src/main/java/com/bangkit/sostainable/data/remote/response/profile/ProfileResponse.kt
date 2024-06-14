@@ -7,20 +7,23 @@ data class ProfileResponse(
 	@field:SerializedName("data")
 	val data: Data? = null,
 
-	@field:SerializedName("message")
-	val message: String? = null,
-
 	@field:SerializedName("status")
 	val status: Int? = null
 )
 
 data class Data(
 
-	@field:SerializedName("nama")
-	val nama: String? = null,
+	@field:SerializedName("password")
+	val password: String? = null,
 
-	@field:SerializedName("nomor_rekening")
-	val nomorRekening: String? = null,
+	@field:SerializedName("foto_profil")
+	val fotoProfil: Any? = null,
+
+	@field:SerializedName("nama")
+	val nama: Any? = null,
+
+	@field:SerializedName("no_rekening")
+	val noRekening: String? = null,
 
 	@field:SerializedName("nama_bank")
 	val namaBank: String? = null,
@@ -28,12 +31,12 @@ data class Data(
 	@field:SerializedName("tanggal_lahir")
 	val tanggalLahir: String? = null,
 
-	@field:SerializedName("email")
-	val email: String? = null,
-
 	@field:SerializedName("username")
 	val username: String? = null,
 
 	@field:SerializedName("alamat")
-	val alamat: String? = null
+	val alamat: String? = null,
+
+	@field:SerializedName("no_telepon")
+	val noTelepon: Any? = null
 )

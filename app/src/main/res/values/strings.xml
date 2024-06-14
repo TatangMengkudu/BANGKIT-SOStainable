@@ -29,7 +29,7 @@
     <string name="dana">Dana</string>
     <string name="kegiatan_bersih_lingkungan_jakarta">Kegiatan Bersih Lingkungan Jakarta…</string>
     <string name="card_description_image">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna dolor sit amet, consectetur adipiscing elit, dolor sit amet…</string>
-    <string name="name">Name</string>
+    <string name="name">Nama</string>
     <string name="bang_jefri_nichole">Bang Jefri Nichole</string>
     <string name="bangjef_bangkitacademy_id">bangjef@bangkitacademy.id</string>
     <string name="tanggal_lahir">Tanggal Lahir</string>
@@ -48,4 +48,5 @@
     <string name="account_registered">Email is already taken</string>
     <string name="retry">Retry</string>
     <string name="fail_get_account">Failed to retrieve user account data</string>
+    <string name="alamat">Alamat</string>
 </resources>

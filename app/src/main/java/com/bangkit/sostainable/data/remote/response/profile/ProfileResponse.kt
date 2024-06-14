@@ -17,10 +17,10 @@ data class Data(
 	val password: String? = null,
 
 	@field:SerializedName("foto_profil")
-	val fotoProfil: Any? = null,
+	val fotoProfil: String? = null,
 
 	@field:SerializedName("nama")
-	val nama: Any? = null,
+	val nama: String? = null,
 
 	@field:SerializedName("no_rekening")
 	val noRekening: String? = null,
@@ -38,5 +38,5 @@ data class Data(
 	val alamat: String? = null,
 
 	@field:SerializedName("no_telepon")
-	val noTelepon: Any? = null
+	val noTelepon: String? = null
 )

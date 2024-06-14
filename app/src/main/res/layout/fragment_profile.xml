@@ -62,8 +62,8 @@
                     android:id="@+id/edtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/bang_jefri_nichole"
                     android:fontFamily="@font/poppins"
+                    android:inputType="textPersonName"
                     android:textColor="@color/textGreyColor"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,8 +93,8 @@
                     android:id="@+id/edtUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/bangjef_bangkitacademy_id"
                     android:fontFamily="@font/poppins"
+                    android:inputType="textPersonName"
                     android:textColor="@color/textGreyColor"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,8 +123,8 @@
                     android:id="@+id/edtTglLahir"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="08-20-1990"
                     android:fontFamily="@font/poppins"
+                    android:inputType="date"
                     android:textColor="@color/textGreyColor"
                     tools:ignore="HardcodedText" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -155,7 +155,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:hint="88992288833"
+                    android:inputType="number"
                     android:textColor="@color/textGreyColor"
                     tools:ignore="HardcodedText,DuplicateSpeakableTextCheck" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -185,17 +185,17 @@
                     android:id="@+id/edtNamaBank"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Mandiri"
                     android:fontFamily="@font/poppins"
+                    android:inputType="textShortMessage"
                     android:textColor="@color/textGreyColor"
                     tools:ignore="HardcodedText" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tv_password"
+                android:id="@+id/tv_no_telp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password"
+                android:text="No. Telp"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
@@ -204,55 +204,53 @@
                 tools:ignore="HardcodedText" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/formPassword"
+                android:id="@+id/formNoTelp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="@id/guidelineRight"
                 app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-                app:layout_constraintTop_toBottomOf="@+id/tv_password">
+                app:layout_constraintTop_toBottomOf="@+id/tv_no_telp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtPassword"
+                    android:id="@+id/edtNoTelp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableEnd="@drawable/visibility_icon"
                     android:fontFamily="@font/poppins"
-                    android:hint="********"
+                    android:inputType="number"
                     android:textColor="@color/textGreyColor"
                     tools:ignore="HardcodedText,DuplicateSpeakableTextCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tv_confirm_password"
+                android:id="@+id/tv_alamat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/confirm_password"
+                android:text="@string/alamat"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@id/formPassword"
+                app:layout_constraintTop_toBottomOf="@id/formNoTelp"
                 app:layout_constraintStart_toStartOf="@id/guidelineLeft" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/formConfirmPassword"
+                android:id="@+id/formAlamat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="@id/guidelineRight"
                 app:layout_constraintStart_toStartOf="@id/guidelineLeft"
-                app:layout_constraintTop_toBottomOf="@+id/tv_confirm_password">
+                app:layout_constraintTop_toBottomOf="@+id/tv_alamat">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtConfirmPassword"
+                    android:id="@+id/edtAlamat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="********"
                     android:fontFamily="@font/poppins"
+                    android:inputType="text"
                     android:textColor="@color/textGreyColor"
-                    android:drawableEnd="@drawable/visibility_icon"
                     tools:ignore="HardcodedText" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -269,7 +267,7 @@
                 android:layout_marginTop="30dp"
                 app:backgroundTint="@color/yellow"
                 android:background="@drawable/custom_button"
-                app:layout_constraintTop_toBottomOf="@id/formConfirmPassword"
+                app:layout_constraintTop_toBottomOf="@id/formAlamat"
                 app:layout_constraintStart_toStartOf="@id/guidelineLeft"
                 app:layout_constraintEnd_toEndOf="@id/guidelineRight" />
 

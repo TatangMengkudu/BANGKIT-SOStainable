@@ -1,13 +1,16 @@
 package com.bangkit.sostainable.data.repository.auth
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import com.bangkit.sostainable.data.json.LoginJson
 import com.bangkit.sostainable.data.local.datastore.UserPreference
 import com.bangkit.sostainable.data.local.datastore.model.LoginSession
 import com.bangkit.sostainable.data.remote.api.service.ApiService
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
 import com.bangkit.sostainable.data.utils.Result
 import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
 import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
 
@@ -19,14 +22,8 @@ class AuthRepository (
         return liveData {
             emit(Result.Loading)
             try {
-                val data = apiService.register(
-                    user.username!!,
-                    user.email!!,
-                    user.tanggalLahir!!,
-                    user.nomorRekening!!,
-                    user.namaBank!!,
-                    user.password!!
-                )
+                val data = apiService.register(user)
+                Log.e("Register", "Success")
                 emit(Result.Success(data))
             } catch (e: HttpException) {
                 val errorBody = e.response()?.errorBody()?.string()
@@ -36,19 +33,32 @@ class AuthRepository (
         }
     }
 
-    suspend fun login(user: User) : LiveData<Result<AuthResponse>> {
+    suspend fun login(loginJson: LoginJson) : LiveData<Result<AuthResponse>> {
         return liveData {
             emit(Result.Loading)
             try {
                 val data = apiService.login(
-                    user.username!!,
-                    user.password!!,
+                    loginJson
                 )
-                emit(Result.Success(data))
+                if (data.status != null && data.status != 200) {
+                    emit(Result.Error(data.message ?: "Unknown error occurred"))
+                } else {
+                    emit(Result.Success(data))
+                }
             } catch (e: HttpException) {
                 val errorBody = e.response()?.errorBody()?.string()
-                val errorResponse = Gson().fromJson(errorBody, AuthResponse::class.java)
-                emit(Result.Error(errorResponse.message!!))
+                if (errorBody != null) {
+                    try {
+                        val errorResponse = Gson().fromJson(errorBody, AuthResponse::class.java)
+                        emit(Result.Error(errorResponse.message ?: "Unknown error occurred"))
+                    } catch (jsonException: JsonSyntaxException) {
+                        emit(Result.Error("Error parsing response: $errorBody"))
+                    }
+                } else {
+                    emit(Result.Error("Unknown error occurred"))
+                }
+            } catch (e: Exception) {
+                emit(Result.Error("Unexpected error: ${e.localizedMessage}"))
             }
         }
     }

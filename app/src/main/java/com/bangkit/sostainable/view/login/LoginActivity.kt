@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.AuthModelFactory
+import com.bangkit.sostainable.data.json.LoginJson
 import com.bangkit.sostainable.data.local.datastore.model.LoginSession
 import com.bangkit.sostainable.data.repository.auth.User
 import com.bangkit.sostainable.data.utils.Result
@@ -58,16 +59,15 @@ class LoginActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 login()
             }
+            moveHomepage()
         }
     }
 
     private fun moveHomepage() {
-        binding.loginButton.setOnClickListener {
-            intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
-            finish()
-        }
+        intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish()
     }
 
     private fun moveRegister() {
@@ -91,7 +91,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         if (usernameValid && passwordValid) {
-            val user = User(username = username, password = password)
+            val user = LoginJson(username = username, password = password)
             loginViewModel.login(user).observe(this, Observer{ result ->
                 when (result) {
                     is Result.Loading -> {

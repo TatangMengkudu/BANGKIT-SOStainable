@@ -19,7 +19,7 @@ data class Data(
 	@field:SerializedName("judul_event")
 	val judulEvent: String? = null,
 
-	@field:SerializedName("deskripsi_event")
+	@field:SerializedName("deskripsi")
 	val deskripsiEvent: String? = null,
 
 	@field:SerializedName("jam_mulai")

@@ -3,6 +3,7 @@ package com.bangkit.sostainable.view.login
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bangkit.sostainable.data.json.LoginJson
 import com.bangkit.sostainable.data.local.datastore.model.LoginSession
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
 import com.bangkit.sostainable.data.repository.auth.AuthRepository
@@ -13,8 +14,8 @@ import kotlinx.coroutines.launch
 class LoginViewModel(
     private val authRepository: AuthRepository
 ): ViewModel() {
-    suspend fun login(user: User) : LiveData<Result<AuthResponse>> {
-        return authRepository.login(user)
+    suspend fun login(loginJson: LoginJson) : LiveData<Result<AuthResponse>> {
+        return authRepository.login(loginJson)
     }
 
     fun saveSession(token: LoginSession) {

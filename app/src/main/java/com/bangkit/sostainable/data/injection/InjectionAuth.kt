@@ -13,7 +13,7 @@ object InjectionAuth {
     fun provideRepository(context: Context): AuthRepository {
         val userPreference = UserPreference.getInstance(context.dataStore)
         val user = runBlocking { userPreference.getSession().first() }
-        val apiService = ApiConfig.getApiService(BuildConfig.BASE_URL, user.token!!)
+        val apiService = ApiConfig.getApiService(BuildConfig.BASE_URL,user.token!!)
         return AuthRepository(apiService, userPreference)
     }
 }

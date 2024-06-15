@@ -4,12 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.sostainable.databinding.ItemImageCarouselBinding
+import com.bumptech.glide.Glide
 
-class ImageCarouselAdapter(private val images: List<Int>): RecyclerView.Adapter<ImageCarouselAdapter.ImageViewHolder>() {
+class ImageCarouselAdapter(private val images: List<String?>): RecyclerView.Adapter<ImageCarouselAdapter.ImageViewHolder>() {
 
     class ImageViewHolder(private var binding: ItemImageCarouselBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(image: Int) {
-            binding.ivImage.setImageResource(image)
+        fun bind(image: String) {
+            Glide.with(binding.ivImage.context)
+                .load(image)
+                .into(binding.ivImage)
         }
     }
 
@@ -19,11 +22,10 @@ class ImageCarouselAdapter(private val images: List<Int>): RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        holder.bind(images[position])
+        images[position]?.let { holder.bind(it) }
     }
 
     override fun getItemCount(): Int {
         return images.size
     }
-
 }

@@ -30,13 +30,19 @@
             android:exported="false"/>
         <activity
             android:name=".view.main.create.CreateActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".view.main.detail.DetailActivity"
             android:exported="false"/>
         <activity
             android:name=".view.login.LoginActivity"
-            android:exported="true">
+            android:exported="false" />
+        <activity
+            android:name=".view.register.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.splashscreen.SplashActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,15 +50,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.register.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.splashscreen.SplashActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.main.MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
     </application>
 </manifest>

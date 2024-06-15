@@ -1,11 +1,9 @@
 package com.bangkit.sostainable.data.remote.api.service
 
-import com.bangkit.sostainable.data.json.DonateJson
-import com.bangkit.sostainable.data.json.JoinJson
-import com.bangkit.sostainable.data.json.LoginJson
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
-import com.bangkit.sostainable.data.remote.response.event.EventMessageResponse
 import com.bangkit.sostainable.data.remote.response.event.EventResponse
+import com.bangkit.sostainable.data.remote.response.profile.ProfileResponse
+import com.bangkit.sostainable.data.remote.response.profile.update.UpdateProfileResponse
 import com.bangkit.sostainable.data.remote.response.event.detail.DetailResponse
 import com.bangkit.sostainable.data.repository.auth.User
 import okhttp3.MultipartBody
@@ -16,6 +14,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -66,4 +65,19 @@ interface ApiService {
     suspend fun joinEvent(
         @Body request: JoinJson
     ): EventMessageResponse
+
+    @GET("profile")
+    suspend fun profileUser(): ProfileResponse
+
+    @FormUrlEncoded
+    @PUT("profile/update")
+    suspend fun updateProfile(
+        @Field("nama") nama: String,
+        @Field("username") username: String,
+        @Field("tanggal_lahir") tanggalLahir: String,
+        @Field("no_rekening") noRekening: String,
+        @Field("nama_bank") namaBank: String,
+        @Field("no_telepon") noTelp: String,
+        @Field("alamat") alamat: String
+    ): UpdateProfileResponse
 }

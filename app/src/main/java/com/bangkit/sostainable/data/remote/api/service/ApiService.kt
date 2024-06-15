@@ -1,6 +1,10 @@
 package com.bangkit.sostainable.data.remote.api.service
 
+import com.bangkit.sostainable.data.json.DonateJson
+import com.bangkit.sostainable.data.json.JoinJson
+import com.bangkit.sostainable.data.json.LoginJson
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
+import com.bangkit.sostainable.data.remote.response.event.EventMessageResponse
 import com.bangkit.sostainable.data.remote.response.event.EventResponse
 import com.bangkit.sostainable.data.remote.response.profile.ProfileResponse
 import com.bangkit.sostainable.data.remote.response.profile.update.UpdateProfileResponse

@@ -6,9 +6,9 @@ import com.bangkit.sostainable.data.json.LoginJson
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
 import com.bangkit.sostainable.data.remote.response.event.EventMessageResponse
 import com.bangkit.sostainable.data.remote.response.event.EventResponse
+import com.bangkit.sostainable.data.remote.response.event.detail.DetailResponse
 import com.bangkit.sostainable.data.remote.response.profile.ProfileResponse
 import com.bangkit.sostainable.data.remote.response.profile.update.UpdateProfileResponse
-import com.bangkit.sostainable.data.remote.response.event.detail.DetailResponse
 import com.bangkit.sostainable.data.repository.auth.User
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -26,7 +26,7 @@ import retrofit2.http.Query
 interface ApiService {
     @POST("auth/register")
     suspend fun register(
-        @Body resquest: User
+        @Body request: User
     ): AuthResponse
 
     @POST("auth/login")

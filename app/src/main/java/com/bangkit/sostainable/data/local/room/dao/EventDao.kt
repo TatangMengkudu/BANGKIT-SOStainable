@@ -12,9 +12,9 @@ interface EventDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertEvent(event: List<DataItem>)
 
-    @Query("SELECT * FROM events")
+    @Query("SELECT * FROM Events")
     fun getAllEvent(): PagingSource<Int, DataItem>
 
-    @Query("DELETE FROM events")
+    @Query("DELETE FROM Events")
     suspend fun deleteAll()
 }

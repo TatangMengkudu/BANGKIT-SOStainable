@@ -1,5 +1,6 @@
 package com.bangkit.sostainable.view.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.EventModelFactory
 import com.bangkit.sostainable.data.remote.response.event.DataItem
 import com.bangkit.sostainable.databinding.FragmentHomeBinding
+import com.bangkit.sostainable.view.main.bookmark.BookmarkActivity
 import com.bangkit.sostainable.view.main.home.adapter.HomeAdapter
 import com.bangkit.sostainable.view.main.home.adapter.LoadingStateAdapter
 
@@ -32,6 +35,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setMenuAppBar()
         getEvents()
     }
 
@@ -51,6 +55,24 @@ class HomeFragment : Fragment() {
                 showSelectedEvent(data)
             }
         })
+    }
+
+    private fun setMenuAppBar() {
+        binding.topAppBar.setOnMenuItemClickListener{ menuItem ->
+            when (menuItem.itemId) {
+                R.id.navigation_bookmark -> {
+                    startActivity(Intent(requireContext(), BookmarkActivity::class.java))
+                    true
+                }
+                /**
+                R.id.navigation_notification -> {
+                    startActivity(Intent(this, NotificationActivity::class.java))
+                    true
+                }
+                */
+                else -> false
+            }
+        }
     }
 
     private fun showSelectedEvent(event: DataItem){

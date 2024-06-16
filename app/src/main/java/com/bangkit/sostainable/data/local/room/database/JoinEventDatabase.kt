@@ -6,8 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.bangkit.sostainable.data.local.room.dao.EventDao
 import com.bangkit.sostainable.data.local.room.entities.JoinEvent
+import com.bangkit.sostainable.data.remote.response.event.DataItem
 
-@Database(entities = [JoinEvent::class], version = 1)
+@Database(entities = [DataItem::class, JoinEvent::class], version = 1)
 abstract class JoinEventDatabase: RoomDatabase() {
     abstract fun joinEventDao(): EventDao
     companion object {

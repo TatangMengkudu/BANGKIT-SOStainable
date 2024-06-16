@@ -142,7 +142,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Price Manually"
-            android:textAlignment="center"
             android:textSize="15sp"
             android:fontFamily="@font/poppins"
             android:textColor="@color/textGreyColor"

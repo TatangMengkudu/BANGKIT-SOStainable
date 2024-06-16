@@ -1,6 +1,5 @@
 package com.bangkit.sostainable.data.repository.auth
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.bangkit.sostainable.data.json.LoginJson
@@ -23,7 +22,6 @@ class AuthRepository (
             emit(Result.Loading)
             try {
                 val data = apiService.register(user)
-                Log.e("Register", "Success")
                 emit(Result.Success(data))
             } catch (e: HttpException) {
                 val errorBody = e.response()?.errorBody()?.string()
@@ -33,18 +31,12 @@ class AuthRepository (
         }
     }
 
-    suspend fun login(loginJson: LoginJson) : LiveData<Result<AuthResponse>> {
+    suspend fun login(loginJson: LoginJson): LiveData<Result<AuthResponse>> {
         return liveData {
             emit(Result.Loading)
             try {
-                val data = apiService.login(
-                    loginJson
-                )
-                if (data.status != null && data.status != 200) {
-                    emit(Result.Error(data.message ?: "Unknown error occurred"))
-                } else {
-                    emit(Result.Success(data))
-                }
+                val data = apiService.login(loginJson)
+                emit(Result.Success(data))
             } catch (e: HttpException) {
                 val errorBody = e.response()?.errorBody()?.string()
                 if (errorBody != null) {

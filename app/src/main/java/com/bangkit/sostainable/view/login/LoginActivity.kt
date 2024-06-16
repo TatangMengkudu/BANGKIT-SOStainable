@@ -15,7 +15,6 @@ import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.AuthModelFactory
 import com.bangkit.sostainable.data.json.LoginJson
 import com.bangkit.sostainable.data.local.datastore.model.LoginSession
-import com.bangkit.sostainable.data.repository.auth.User
 import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.ActivityLoginBinding
 import com.bangkit.sostainable.view.main.MainActivity

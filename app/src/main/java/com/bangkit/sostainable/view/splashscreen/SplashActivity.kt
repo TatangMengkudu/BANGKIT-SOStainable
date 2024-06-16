@@ -10,6 +10,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.sostainable.R
 import com.bangkit.sostainable.view.login.LoginActivity
+import com.bangkit.sostainable.view.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

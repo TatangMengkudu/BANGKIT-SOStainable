@@ -1,6 +1,7 @@
 package com.bangkit.sostainable.view.main.donate
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +16,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.EventModelFactory
+import com.bangkit.sostainable.data.factory.HistoryDonateFactory
 import com.bangkit.sostainable.data.json.DonateJson
+import com.bangkit.sostainable.data.local.room.entities.HistoryDonateEvent
+import com.bangkit.sostainable.data.local.room.entities.JoinEvent
+import com.bangkit.sostainable.data.remote.response.event.detail.Data
 import com.bangkit.sostainable.databinding.ActivityDonateBinding
 import com.bumptech.glide.Glide
 import com.bangkit.sostainable.data.utils.Result
+import com.bangkit.sostainable.view.main.detail.DetailActivity
+import com.bangkit.sostainable.view.main.donate.historyDonate.HistoryDonateViewModel
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -32,6 +39,9 @@ class DonateActivity : AppCompatActivity() {
 
     private val donateViewModel: DonateViewModel by viewModels {
         EventModelFactory.getInstance(this)
+    }
+    private val historyDonateViewModel by viewModels<HistoryDonateViewModel> {
+        HistoryDonateFactory.getInstance(application)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +76,30 @@ class DonateActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 donateEvent(donateJson)
             }
+            addHistoryDonate(id.toString(), imageUrl.toString(), title.toString(), tvCurrentDate.toString(), selectedPaymentMethod.toString(), sumDonate)
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            intent.putExtra(DetailActivity.DATA_EVENT, id)
+            startActivity(intent)
         }
+        binding.icBack.setOnClickListener {
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            intent.putExtra(DetailActivity.DATA_EVENT, id)
+            startActivity(intent)
+        }
+    }
+
+    private fun addHistoryDonate(id: String, imageUrl: String, title: String, tvCurrentDate: String, payment: String, nominal: String) {
+        val historyDonateEvent = HistoryDonateEvent(
+            idEvent = id,
+            imageUrl = imageUrl,
+            title = title,
+            Date = tvCurrentDate,
+            payment = payment,
+            nominal = nominal
+        )
+        historyDonateViewModel.insertHistoryDonate(historyDonateEvent)
     }
 
     private fun currentDate(){

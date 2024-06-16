@@ -49,4 +49,6 @@
     <string name="retry">Retry</string>
     <string name="fail_get_account">Failed to retrieve user account data</string>
     <string name="alamat">Alamat</string>
+    <string name="history_donate">History Donate</string>
+    <string name="volunteer_event">Volunteer Event</string>
 </resources>

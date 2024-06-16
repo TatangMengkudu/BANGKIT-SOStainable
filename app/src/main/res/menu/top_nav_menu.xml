@@ -11,4 +11,14 @@
         android:icon="@drawable/notification_icon"
         android:title="@string/notification"
         app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/navigation_joinEvent"
+        android:title="@string/volunteer_event"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/navigation_historyEvent"
+        android:title="@string/history_donate"
+        app:showAsAction="never" />
 </menu>

@@ -11,11 +11,14 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.EventModelFactory
+import com.bangkit.sostainable.data.local.room.entities.HistoryDonateEvent
 import com.bangkit.sostainable.data.remote.response.event.DataItem
 import com.bangkit.sostainable.databinding.FragmentHomeBinding
 import com.bangkit.sostainable.view.main.bookmark.BookmarkActivity
+import com.bangkit.sostainable.view.main.donate.historyDonate.HistoryDonateActivity
 import com.bangkit.sostainable.view.main.home.adapter.HomeAdapter
 import com.bangkit.sostainable.view.main.home.adapter.LoadingStateAdapter
+import com.bangkit.sostainable.view.main.joinVolunter.JoinVolunterActivity
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -70,6 +73,14 @@ class HomeFragment : Fragment() {
                     true
                 }
                 */
+                R.id.navigation_joinEvent -> {
+                    startActivity(Intent(requireContext(), JoinVolunterActivity::class.java))
+                    true
+                }
+                R.id.navigation_historyEvent -> {
+                    startActivity(Intent(requireContext(), HistoryDonateActivity::class.java))
+                    true
+                }
                 else -> false
             }
         }

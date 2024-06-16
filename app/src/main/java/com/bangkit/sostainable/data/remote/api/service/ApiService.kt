@@ -84,4 +84,7 @@ interface ApiService {
         @Field("no_telepon") noTelp: String,
         @Field("alamat") alamat: String
     ): UpdateProfileResponse
+
+    @GET("event/donate/list")
+    suspend fun getHistoryDonate(): EventResponse
 }

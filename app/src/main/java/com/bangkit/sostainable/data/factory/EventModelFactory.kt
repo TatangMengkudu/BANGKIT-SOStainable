@@ -28,7 +28,6 @@ class EventModelFactory(
             modelClass.isAssignableFrom(CreateViewModel::class.java) -> {
                 CreateViewModel(eventRepository) as T
             }
-            // TODO: JoinViewModel
 
             // TODO: DonateViewModel
             modelClass.isAssignableFrom(DonateViewModel::class.java) -> {

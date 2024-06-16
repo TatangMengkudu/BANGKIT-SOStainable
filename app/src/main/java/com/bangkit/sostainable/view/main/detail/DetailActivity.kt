@@ -1,6 +1,8 @@
 package com.bangkit.sostainable.view.main.detail
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Paint.Join
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -16,8 +18,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.BookmarkFactory
 import com.bangkit.sostainable.data.factory.EventModelFactory
+import com.bangkit.sostainable.data.factory.JoinEventFactory
 import com.bangkit.sostainable.data.json.JoinJson
 import com.bangkit.sostainable.data.local.room.entities.Bookmark
+import com.bangkit.sostainable.data.local.room.entities.JoinEvent
 import com.bangkit.sostainable.data.remote.response.event.detail.Data
 import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.ActivityDetailBinding
@@ -25,6 +29,7 @@ import com.bangkit.sostainable.view.main.MainActivity
 import com.bangkit.sostainable.view.main.bookmark.BookmarkViewModel
 import com.bangkit.sostainable.view.main.detail.adapter.ImageCarouselAdapter
 import com.bangkit.sostainable.view.main.donate.DonateActivity
+import com.bangkit.sostainable.view.main.joinVolunter.JoinEventViewModel
 import com.bangkit.sostainable.view.utils.dateFormat
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
@@ -39,6 +44,9 @@ class DetailActivity : AppCompatActivity() {
     }
     private val bookmarkEvent by viewModels<BookmarkViewModel> {
         BookmarkFactory.getInstance(application)
+    }
+    private val joinEventViewModel by viewModels<JoinEventViewModel> {
+        JoinEventFactory.getInstance(application)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -64,8 +72,6 @@ class DetailActivity : AppCompatActivity() {
         binding.donateButton.setOnClickListener {
             donateEvent()
         }
-
-        joinVolunteer()
     }
 
     private fun moveBack() {
@@ -114,7 +120,7 @@ class DetailActivity : AppCompatActivity() {
                     bundle.putString("description", result.data.data.deskripsiEvent)
 
                     setBookmark(result.data.data)
-
+                    setJoinVolunter(result.data.data)
                 }
                 is Result.Error -> {
                     showMessage(result.error)
@@ -138,6 +144,48 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setJoinVolunter(event: Data) {
+        joinEventViewModel.getJoinEventById(event.idEvent!!).observe(this) { result ->
+            if (result == null) {
+                binding.joinVolunteerButton.text = "Join Volunteer"
+                binding.joinVolunteerButton.setOnClickListener {
+                    joinVolunteer()
+                    addJoinEvent(event)
+                }
+            } else {
+                binding.joinVolunteerButton.text = "Cancel Join"
+                binding.joinVolunteerButton.setOnClickListener {
+                    deleteJoinEvent(event)
+                }
+            }
+        }
+    }
+
+    private fun addJoinEvent(event: Data) {
+        val joinEvent = JoinEvent(
+            idEvent = event.idEvent!!,
+            imageUrl = event.fotoLokasi?.getOrNull(0).toString(),
+            title = event.judulEvent.toString(),
+            startDate = event.tanggalMulai.toString(),
+            endDate = event.tanggalSelesai.toString(),
+            address = event.alamat.toString()
+        )
+        joinEventViewModel.insertJoin(joinEvent)
+    }
+
+    private fun deleteJoinEvent(event: Data) {
+        val joinEvent = JoinEvent(
+            idEvent = event.idEvent!!,
+            imageUrl = event.fotoLokasi?.getOrNull(0).toString(),
+            title = event.judulEvent.toString(),
+            startDate = event.tanggalMulai.toString(),
+            endDate = event.tanggalSelesai.toString(),
+            address = event.alamat.toString()
+        )
+        joinEventViewModel.deleteJoin(joinEvent)
     }
 
     private fun addBookmarkEvent(event: Data) {

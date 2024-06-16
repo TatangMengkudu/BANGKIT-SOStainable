@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity
-data class JoinEvent(
+class HistoryDonateEvent (
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id_event")
     var idEvent: String,
@@ -16,10 +16,10 @@ data class JoinEvent(
     var imageUrl: String,
     @ColumnInfo(name = "title")
     var title: String,
-    @ColumnInfo(name = "startDate")
-    var startDate: String,
-    @ColumnInfo(name = "endDate")
-    var endDate: String,
-    @ColumnInfo(name = "address")
-    var address: String
-): Parcelable
+    @ColumnInfo(name = "Date")
+    var Date: String,
+    @ColumnInfo(name = "nominal")
+    var nominal: String,
+    @ColumnInfo(name = "payment")
+    var payment: String
+    ): Parcelable

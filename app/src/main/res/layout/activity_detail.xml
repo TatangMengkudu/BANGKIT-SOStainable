@@ -21,7 +21,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/iv_news" />
+            tools:src="@drawable/iv_news" />
 
         <ImageView
             android:id="@+id/ic_back"

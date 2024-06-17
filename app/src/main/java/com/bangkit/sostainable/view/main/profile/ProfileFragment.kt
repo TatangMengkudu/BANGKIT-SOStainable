@@ -1,5 +1,6 @@
 package com.bangkit.sostainable.view.main.profile
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -19,7 +20,9 @@ import com.bangkit.sostainable.data.local.datastore.model.LoginSession
 import com.bangkit.sostainable.data.repository.auth.User
 import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.FragmentProfileBinding
+import com.bangkit.sostainable.view.login.LoginActivity
 import com.bangkit.sostainable.view.login.LoginViewModel
+import com.bangkit.sostainable.view.main.MainViewModel
 import com.bangkit.sostainable.view.utils.dateFormat
 import kotlinx.coroutines.launch
 
@@ -29,6 +32,9 @@ class ProfileFragment : Fragment() {
         ProfileModelFactory.getInstance(requireContext())
     }
     private val loginViewModel: LoginViewModel by viewModels {
+        AuthModelFactory.getInstance(requireContext())
+    }
+    private val userSession: MainViewModel by viewModels {
         AuthModelFactory.getInstance(requireContext())
     }
 
@@ -48,11 +54,8 @@ class ProfileFragment : Fragment() {
             profileUser()
         }
 
-        binding.buttonUpdateProfile.setOnClickListener {
-            lifecycleScope.launch {
-                updateProfile()
-            }
-        }
+        setProfile()
+        logout()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -82,6 +85,15 @@ class ProfileFragment : Fragment() {
                 }
             }
         })
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setProfile() {
+        binding.buttonUpdateProfile.setOnClickListener {
+            lifecycleScope.launch {
+                updateProfile()
+            }
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -128,6 +140,15 @@ class ProfileFragment : Fragment() {
     }
 
     private fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
+
+    private fun logout() {
+        binding.buttonLogout.setOnClickListener {
+            userSession.logout()
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+        }
+    }
 
     private fun showMessage(message: String) {
         Toast.makeText(

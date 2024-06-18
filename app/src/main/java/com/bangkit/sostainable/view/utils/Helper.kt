@@ -10,7 +10,7 @@ import java.util.TimeZone
 @RequiresApi(Build.VERSION_CODES.O)
 fun dateFormat(created: String): String {
     val instant = Instant.parse(created)
-    val formatter = DateTimeFormatter.ofPattern("dd MMM yyyy")
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
         .withZone(ZoneId.of(TimeZone.getDefault().id))
     return formatter.format(instant)
 }

@@ -1,6 +1,7 @@
 package com.bangkit.sostainable.view.main.profile
 
 import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -28,9 +29,13 @@ import com.bangkit.sostainable.view.login.LoginViewModel
 import com.bangkit.sostainable.view.main.MainViewModel
 import com.bangkit.sostainable.view.utils.dateFormat
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
+    private val calender = Calendar.getInstance()
     private val profileViewModel: ProfileViewModel by viewModels {
         ProfileModelFactory.getInstance(requireContext())
     }
@@ -59,7 +64,18 @@ class ProfileFragment : Fragment() {
 
         setProfile()
 
-        // Inisialisasi untuk menonaktifkan keyboard saat mengklik edtNamaBank
+        // SELECT Date of Birth
+        binding.edtTglLahir.apply {
+            isFocusable = false
+            isFocusableInTouchMode = false
+            inputType = android.text.InputType.TYPE_NULL
+
+            setOnClickListener {
+                selectDate()
+            }
+        }
+
+        // SELECT BANK
         binding.edtNamaBank.apply {
             isFocusable = false
             isFocusableInTouchMode = false
@@ -191,5 +207,20 @@ class ProfileFragment : Fragment() {
         }
 
         builder.show()
+    }
+
+    private fun selectDate() {
+        val datePicker = DatePickerDialog(requireContext(), { _, year: Int, month: Int, dayOfMonth: Int ->
+            val selectedDate = Calendar.getInstance()
+            selectedDate.set(year, month, dayOfMonth)
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val formattedDate = dateFormat.format(selectedDate.time)
+            binding.edtTglLahir.text = formattedDate.toEditable()
+        },
+            calender.get(Calendar.YEAR),
+            calender.get(Calendar.MONTH),
+            calender.get(Calendar.DAY_OF_MONTH)
+        )
+        datePicker.show()
     }
 }

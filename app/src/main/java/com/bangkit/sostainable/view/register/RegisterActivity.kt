@@ -1,6 +1,7 @@
 package com.bangkit.sostainable.view.register
 
 import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -23,6 +24,9 @@ import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.ActivityRegisterBinding
 import com.bangkit.sostainable.view.login.LoginActivity
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -30,6 +34,7 @@ class RegisterActivity : AppCompatActivity() {
     private val registerViewModel: RegisterViewModel by viewModels {
         AuthModelFactory.getInstance(this)
     }
+    private val calender = Calendar.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -55,6 +60,17 @@ class RegisterActivity : AppCompatActivity() {
     private fun setupAction() {
         // MOVE TO LOGIN PAGE
         moveLogin()
+
+        // SELECT Date of Birth
+        binding.edtTglLahir.apply {
+            isFocusable = false
+            isFocusableInTouchMode = false
+            inputType = android.text.InputType.TYPE_NULL
+
+            setOnClickListener {
+                selectDate()
+            }
+        }
 
         // SELECT BANK
         binding.edtNamaBank.apply {
@@ -163,6 +179,21 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
+
+    private fun selectDate() {
+        val datePicker = DatePickerDialog(this, { _, year: Int, month: Int, dayOfMonth: Int ->
+            val selectedDate = Calendar.getInstance()
+            selectedDate.set(year, month, dayOfMonth)
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val formattedDate = dateFormat.format(selectedDate.time)
+            binding.edtTglLahir.text = formattedDate.toEditable()
+        },
+            calender.get(Calendar.YEAR),
+            calender.get(Calendar.MONTH),
+            calender.get(Calendar.DAY_OF_MONTH)
+        )
+        datePicker.show()
+    }
 
     private fun selectBank() {
         val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

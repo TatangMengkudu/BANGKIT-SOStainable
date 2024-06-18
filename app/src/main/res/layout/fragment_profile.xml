@@ -186,7 +186,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:inputType="textShortMessage"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:textColor="@color/textGreyColor"
                     tools:ignore="HardcodedText" />
             </com.google.android.material.textfield.TextInputLayout>

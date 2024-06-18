@@ -1,12 +1,16 @@
 package com.bangkit.sostainable.view.register
 
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
 import android.util.Patterns
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -51,6 +55,17 @@ class RegisterActivity : AppCompatActivity() {
     private fun setupAction() {
         // MOVE TO LOGIN PAGE
         moveLogin()
+
+        // SELECT BANK
+        binding.edtNamaBank.apply {
+            isFocusable = false
+            isFocusableInTouchMode = false
+            inputType = android.text.InputType.TYPE_NULL
+
+            setOnClickListener {
+                selectBank()
+            }
+        }
 
         // REGISTER
         binding.registerButton.setOnClickListener {
@@ -145,5 +160,28 @@ class RegisterActivity : AppCompatActivity() {
             message,
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    private fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
+
+    private fun selectBank() {
+        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+
+        val options = arrayOf(
+            "BCA",
+            "BRI",
+            "BNI",
+            "BTN",
+            "Mandiri",
+            "BSI Syariah")
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Pilih Sumber Bank")
+
+        builder.setItems(options) { dialog, which ->
+            binding.edtNamaBank.text = options[which].toEditable()
+        }
+
+        builder.show()
     }
 }

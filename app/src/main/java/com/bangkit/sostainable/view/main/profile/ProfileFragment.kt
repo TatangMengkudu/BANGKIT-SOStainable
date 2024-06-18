@@ -1,5 +1,7 @@
 package com.bangkit.sostainable.view.main.profile
 
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -7,6 +9,7 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
@@ -16,8 +19,8 @@ import androidx.lifecycle.lifecycleScope
 import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.AuthModelFactory
 import com.bangkit.sostainable.data.factory.ProfileModelFactory
-import com.bangkit.sostainable.data.local.datastore.model.LoginSession
 import com.bangkit.sostainable.data.json.User
+import com.bangkit.sostainable.data.local.datastore.model.LoginSession
 import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.FragmentProfileBinding
 import com.bangkit.sostainable.view.login.LoginActivity
@@ -55,6 +58,17 @@ class ProfileFragment : Fragment() {
         }
 
         setProfile()
+
+        // Inisialisasi untuk menonaktifkan keyboard saat mengklik edtNamaBank
+        binding.edtNamaBank.apply {
+            isFocusable = false
+            isFocusableInTouchMode = false
+            inputType = android.text.InputType.TYPE_NULL
+
+            setOnClickListener {
+                selectBank()
+            }
+        }
         logout()
     }
 
@@ -156,5 +170,26 @@ class ProfileFragment : Fragment() {
             message,
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    private fun selectBank() {
+        val inputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)
+
+        val options = arrayOf(
+            "BCA",
+            "BRI",
+            "BNI",
+            "BTN",
+            "Mandiri",
+            "BSI Syariah")
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Pilih Sumber Bank")
+
+        builder.setItems(options) { dialog, which ->
+            binding.edtNamaBank.text = options[which].toEditable()
+        }
+
+        builder.show()
     }
 }

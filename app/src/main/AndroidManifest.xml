@@ -36,7 +36,7 @@
             android:exported="false" />
         <activity
             android:name=".view.main.create.CreateActivity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".view.main.detail.DetailActivity"
             android:exported="false" />

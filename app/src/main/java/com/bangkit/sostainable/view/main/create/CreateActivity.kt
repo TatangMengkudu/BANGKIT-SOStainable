@@ -142,6 +142,10 @@ class CreateActivity : AppCompatActivity(), LocationListener {
                         setMessage("Success to create event: ${result.data.message}")
                         setPositiveButton("OK") { dialog, _ ->
                             dialog.dismiss()
+                            val intent = Intent(this@CreateActivity, MainActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                            finish()
                         }
                     }
                     val alertDialog = alertDialogBuilder.create()
@@ -348,6 +352,9 @@ class CreateActivity : AppCompatActivity(), LocationListener {
     private fun clearLists() {
         fileList.clear()
         imageMultipartList.clear()
+        binding.ivImage1.setImageDrawable(null)
+        binding.ivImage2.setImageDrawable(null)
+        binding.ivImage3.setImageDrawable(null)
     }
 
     private fun backButton(){
@@ -433,14 +440,13 @@ class CreateActivity : AppCompatActivity(), LocationListener {
 
 
     // DATE
-    private fun showStartDatePicker(){
-        val datePicker = DatePickerDialog(this@CreateActivity,{DatePicker,
-                year: Int, month: Int, dayOfMonth: Int ->
+    private fun showStartDatePicker() {
+        val datePicker = DatePickerDialog(this@CreateActivity, { _, year: Int, month: Int, dayOfMonth: Int ->
             val selectedDate = Calendar.getInstance()
-            selectedDate.set(year,month,dayOfMonth)
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-            val formateDate = dateFormat.format(selectedDate.time)
-            binding.formStartdate.editText?.setText(formateDate)
+            selectedDate.set(year, month, dayOfMonth)
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val formattedDate = dateFormat.format(selectedDate.time)
+            binding.formStartdate.editText?.setText(formattedDate)
         },
             calender.get(Calendar.YEAR),
             calender.get(Calendar.MONTH),
@@ -449,14 +455,13 @@ class CreateActivity : AppCompatActivity(), LocationListener {
         datePicker.show()
     }
 
-    private fun showEndDatePicker(){
-        val datePicker = DatePickerDialog(this@CreateActivity,{DatePicker,
-                                                               year: Int, month: Int, dayOfMonth: Int ->
+    private fun showEndDatePicker() {
+        val datePicker = DatePickerDialog(this@CreateActivity, { _, year: Int, month: Int, dayOfMonth: Int ->
             val selectedDate = Calendar.getInstance()
-            selectedDate.set(year,month,dayOfMonth)
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-            val formateDate = dateFormat.format(selectedDate.time)
-            binding.formEndDate.editText?.setText(formateDate)
+            selectedDate.set(year, month, dayOfMonth)
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val formattedDate = dateFormat.format(selectedDate.time)
+            binding.formEndDate.editText?.setText(formattedDate)
         },
             calender.get(Calendar.YEAR),
             calender.get(Calendar.MONTH),

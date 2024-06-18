@@ -6,7 +6,7 @@ import com.bangkit.sostainable.data.remote.api.service.ApiService
 import com.bangkit.sostainable.data.remote.response.profile.ProfileMessageResponse
 import com.bangkit.sostainable.data.remote.response.profile.ProfileResponse
 import com.bangkit.sostainable.data.remote.response.profile.update.UpdateProfileResponse
-import com.bangkit.sostainable.data.repository.auth.User
+import com.bangkit.sostainable.data.json.User
 import com.bangkit.sostainable.data.utils.Result
 import com.google.gson.Gson
 import retrofit2.HttpException
@@ -32,15 +32,7 @@ class ProfileRepository(
         return liveData {
             emit(Result.Loading)
             try {
-                val data = apiService.updateProfile(
-                    user.name!!,
-                    user.username!!,
-                    user.tanggalLahir!!,
-                    user.nomorRekening!!,
-                    user.namaBank!!,
-                    user.nomorTelp!!,
-                    user.alamat!!
-                )
+                val data = apiService.updateProfile(user)
                 emit(Result.Success(data))
             } catch (e: HttpException) {
                 val errorBody = e.response()?.errorBody()?.string()

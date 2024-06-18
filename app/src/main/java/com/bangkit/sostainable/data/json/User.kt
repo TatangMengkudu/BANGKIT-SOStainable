@@ -1,4 +1,4 @@
-package com.bangkit.sostainable.data.repository.auth
+package com.bangkit.sostainable.data.json
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

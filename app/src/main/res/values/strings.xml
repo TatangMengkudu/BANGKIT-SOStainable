@@ -45,7 +45,7 @@
     <string name="upload">Upload</string>
     <string name="validation_message">Please fill out the text boxes correctly</string>
     <string name="validasi_name">^[a-zA-Z\\s]+$</string>
-    <string name="account_registered">Email is already taken</string>
+    <string name="account_registered">Account has already been used</string>
     <string name="retry">Retry</string>
     <string name="fail_get_account">Failed to retrieve user account data</string>
     <string name="alamat">Alamat</string>

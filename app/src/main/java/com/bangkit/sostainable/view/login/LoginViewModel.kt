@@ -7,7 +7,6 @@ import com.bangkit.sostainable.data.json.LoginJson
 import com.bangkit.sostainable.data.local.datastore.model.LoginSession
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
 import com.bangkit.sostainable.data.repository.auth.AuthRepository
-import com.bangkit.sostainable.data.repository.auth.User
 import com.bangkit.sostainable.data.utils.Result
 import kotlinx.coroutines.launch
 

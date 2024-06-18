@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
 import com.bangkit.sostainable.data.repository.auth.AuthRepository
-import com.bangkit.sostainable.data.repository.auth.User
+import com.bangkit.sostainable.data.json.User
 import com.bangkit.sostainable.data.utils.Result
 
 class RegisterViewModel(

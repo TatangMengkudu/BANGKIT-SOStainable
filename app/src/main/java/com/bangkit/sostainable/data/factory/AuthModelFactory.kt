@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sostainable.data.injection.InjectionAuth
 import com.bangkit.sostainable.data.repository.auth.AuthRepository
 import com.bangkit.sostainable.view.login.LoginViewModel
+import com.bangkit.sostainable.view.main.MainViewModel
 import com.bangkit.sostainable.view.register.RegisterViewModel
 
 class AuthModelFactory(
@@ -19,6 +20,9 @@ class AuthModelFactory(
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(authRepository) as T
+            }
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+                MainViewModel(authRepository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

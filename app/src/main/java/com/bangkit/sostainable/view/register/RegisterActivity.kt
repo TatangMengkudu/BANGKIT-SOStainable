@@ -14,7 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.AuthModelFactory
-import com.bangkit.sostainable.data.repository.auth.User
+import com.bangkit.sostainable.data.json.User
 import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.ActivityRegisterBinding
 import com.bangkit.sostainable.view.login.LoginActivity

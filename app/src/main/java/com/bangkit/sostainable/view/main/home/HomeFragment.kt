@@ -10,10 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.sostainable.R
+import com.bangkit.sostainable.data.factory.AuthModelFactory
 import com.bangkit.sostainable.data.factory.EventModelFactory
-import com.bangkit.sostainable.data.local.room.entities.HistoryDonateEvent
 import com.bangkit.sostainable.data.remote.response.event.DataItem
 import com.bangkit.sostainable.databinding.FragmentHomeBinding
+import com.bangkit.sostainable.view.login.LoginActivity
+import com.bangkit.sostainable.view.main.MainViewModel
 import com.bangkit.sostainable.view.main.bookmark.BookmarkActivity
 import com.bangkit.sostainable.view.main.donate.historyDonate.HistoryDonateActivity
 import com.bangkit.sostainable.view.main.home.adapter.HomeAdapter
@@ -24,6 +26,9 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val homeViewModel: HomeViewModel by viewModels {
         EventModelFactory.getInstance(requireContext())
+    }
+    private val userSession: MainViewModel by viewModels {
+        AuthModelFactory.getInstance(requireContext())
     }
     private lateinit var adapter: HomeAdapter
 
@@ -39,6 +44,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setMenuAppBar()
+        checkLogin()
         getEvents()
     }
 
@@ -88,5 +94,15 @@ class HomeFragment : Fragment() {
 
     private fun showSelectedEvent(event: DataItem){
         Toast.makeText(requireContext(), event.judulEvent, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun checkLogin() {
+        userSession.getSession().observe(viewLifecycleOwner) { result ->
+            if (result.token.isNullOrEmpty()) {
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            }
+        }
     }
 }

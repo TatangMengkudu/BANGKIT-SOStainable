@@ -13,4 +13,5 @@ class HomeViewModel(
 ): ViewModel() {
     val event: LiveData<PagingData<DataItem>> =
         eventRepository.getEvents().cachedIn(viewModelScope)
+
 }

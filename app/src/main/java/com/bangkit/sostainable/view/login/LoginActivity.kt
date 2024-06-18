@@ -18,12 +18,16 @@ import com.bangkit.sostainable.data.local.datastore.model.LoginSession
 import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.ActivityLoginBinding
 import com.bangkit.sostainable.view.main.MainActivity
+import com.bangkit.sostainable.view.main.MainViewModel
 import com.bangkit.sostainable.view.register.RegisterActivity
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val loginViewModel: LoginViewModel by viewModels {
+        AuthModelFactory.getInstance(this)
+    }
+    private val userSession: MainViewModel by viewModels {
         AuthModelFactory.getInstance(this)
     }
 

@@ -9,7 +9,6 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.sostainable.R
-import com.bangkit.sostainable.view.login.LoginActivity
 import com.bangkit.sostainable.view.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -37,7 +36,7 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(
                 this@SplashActivity,
-                LoginActivity::class.java
+                MainActivity::class.java
             )
             startActivity(intent)
             finish()

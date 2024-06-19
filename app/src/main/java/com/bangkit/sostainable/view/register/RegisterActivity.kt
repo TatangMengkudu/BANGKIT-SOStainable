@@ -19,7 +19,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.AuthModelFactory
-import com.bangkit.sostainable.data.json.User
+import com.bangkit.sostainable.data.json.RegisterJson
 import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.ActivityRegisterBinding
 import com.bangkit.sostainable.view.login.LoginActivity
@@ -139,12 +139,12 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         if (usernameValid && emailValid && passwordValid == confirmPassValid) {
-            val user = User(
+            val user = RegisterJson(
                 username = username,
                 email = email,
-                tanggalLahir = tanggalLahir,
-                nomorRekening = nomorRekening,
-                namaBank = namaBank,
+                tanggal_lahir = tanggalLahir,
+                no_rekening = nomorRekening,
+                nama_bank = namaBank,
                 password = password
             )
             registerViewModel.register(user).observe(this, Observer { result ->
@@ -207,7 +207,7 @@ class RegisterActivity : AppCompatActivity() {
             "Mandiri",
             "BSI Syariah")
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Pilih Sumber Bank")
+        builder.setTitle("Pilih Bank")
 
         builder.setItems(options) { dialog, which ->
             binding.edtNamaBank.text = options[which].toEditable()

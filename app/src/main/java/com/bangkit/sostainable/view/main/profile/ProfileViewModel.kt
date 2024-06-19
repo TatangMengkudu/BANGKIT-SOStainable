@@ -2,9 +2,9 @@ package com.bangkit.sostainable.view.main.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.bangkit.sostainable.data.json.ProfileJson
 import com.bangkit.sostainable.data.remote.response.profile.ProfileResponse
 import com.bangkit.sostainable.data.remote.response.profile.update.UpdateProfileResponse
-import com.bangkit.sostainable.data.json.User
 import com.bangkit.sostainable.data.repository.profile.ProfileRepository
 import com.bangkit.sostainable.data.utils.Result
 
@@ -15,7 +15,7 @@ class ProfileViewModel(
         return profileRepository.profileUser()
     }
 
-    suspend fun updateProfile(user: User): LiveData<Result<UpdateProfileResponse>> {
+    suspend fun updateProfile(user: ProfileJson): LiveData<Result<UpdateProfileResponse>> {
         return profileRepository.updateProfile(user)
     }
 }

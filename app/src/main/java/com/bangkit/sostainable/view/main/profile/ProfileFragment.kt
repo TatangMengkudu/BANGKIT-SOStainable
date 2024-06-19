@@ -20,7 +20,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.AuthModelFactory
 import com.bangkit.sostainable.data.factory.ProfileModelFactory
-import com.bangkit.sostainable.data.json.User
+import com.bangkit.sostainable.data.json.ProfileJson
 import com.bangkit.sostainable.data.local.datastore.model.LoginSession
 import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.FragmentProfileBinding
@@ -128,7 +128,7 @@ class ProfileFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private suspend fun updateProfile() {
-        val name = binding.edtName.text.toString().trim()
+        val nama = binding.edtName.text.toString().trim()
         val username = binding.edtUsername.text.toString().trim()
         val tanggalLahir = binding.edtTglLahir.text.toString().trim()
         val nomorRekening = binding.edtNoRekening.text.toString().trim()
@@ -136,13 +136,13 @@ class ProfileFragment : Fragment() {
         val nomorTelp = binding.edtNoTelp.text.toString().trim()
         val alamat = binding.edtAlamat.text.toString().trim()
 
-        val user = User(
-            name = name,
+        val user = ProfileJson(
+            nama = nama,
             username = username,
-            tanggalLahir = tanggalLahir,
-            nomorRekening = nomorRekening,
-            namaBank = namaBank,
-            nomorTelp = nomorTelp,
+            tanggal_lahir = tanggalLahir,
+            no_rekening = nomorRekening,
+            nama_bank = namaBank,
+            no_telepon = nomorTelp,
             alamat = alamat
         )
         profileViewModel.updateProfile(user).observe(viewLifecycleOwner, Observer { result ->
@@ -200,7 +200,7 @@ class ProfileFragment : Fragment() {
             "Mandiri",
             "BSI Syariah")
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Pilih Sumber Bank")
+        builder.setTitle("Pilih Bank")
 
         builder.setItems(options) { dialog, which ->
             binding.edtNamaBank.text = options[which].toEditable()

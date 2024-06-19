@@ -3,7 +3,8 @@ package com.bangkit.sostainable.data.remote.api.service
 import com.bangkit.sostainable.data.json.DonateJson
 import com.bangkit.sostainable.data.json.JoinJson
 import com.bangkit.sostainable.data.json.LoginJson
-import com.bangkit.sostainable.data.json.User
+import com.bangkit.sostainable.data.json.ProfileJson
+import com.bangkit.sostainable.data.json.RegisterJson
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
 import com.bangkit.sostainable.data.remote.response.event.EventMessageResponse
 import com.bangkit.sostainable.data.remote.response.event.EventResponse
@@ -24,7 +25,7 @@ import retrofit2.http.Query
 interface ApiService {
     @POST("auth/register")
     suspend fun register(
-        @Body request: User
+        @Body request: RegisterJson
     ): AuthResponse
 
     @POST("auth/login")
@@ -73,7 +74,7 @@ interface ApiService {
 
     @PUT("profile/update")
     suspend fun updateProfile(
-        @Body request: User
+        @Body request: ProfileJson
     ): UpdateProfileResponse
 
     @GET("event/donate/list")

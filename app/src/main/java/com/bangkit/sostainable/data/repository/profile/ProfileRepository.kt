@@ -2,11 +2,11 @@ package com.bangkit.sostainable.data.repository.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import com.bangkit.sostainable.data.json.ProfileJson
 import com.bangkit.sostainable.data.remote.api.service.ApiService
 import com.bangkit.sostainable.data.remote.response.profile.ProfileMessageResponse
 import com.bangkit.sostainable.data.remote.response.profile.ProfileResponse
 import com.bangkit.sostainable.data.remote.response.profile.update.UpdateProfileResponse
-import com.bangkit.sostainable.data.json.User
 import com.bangkit.sostainable.data.utils.Result
 import com.google.gson.Gson
 import retrofit2.HttpException
@@ -28,7 +28,7 @@ class ProfileRepository(
         }
     }
 
-    suspend fun updateProfile(user: User): LiveData<Result<UpdateProfileResponse>> {
+    suspend fun updateProfile(user: ProfileJson): LiveData<Result<UpdateProfileResponse>> {
         return liveData {
             emit(Result.Loading)
             try {

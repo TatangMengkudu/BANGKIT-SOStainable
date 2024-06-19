@@ -8,6 +8,7 @@ import com.bangkit.sostainable.data.json.RegisterJson
 import com.bangkit.sostainable.data.remote.response.auth.AuthResponse
 import com.bangkit.sostainable.data.remote.response.event.EventMessageResponse
 import com.bangkit.sostainable.data.remote.response.event.EventResponse
+import com.bangkit.sostainable.data.remote.response.event.MyEventResponse
 import com.bangkit.sostainable.data.remote.response.event.detail.DetailResponse
 import com.bangkit.sostainable.data.remote.response.profile.ProfileResponse
 import com.bangkit.sostainable.data.remote.response.profile.update.UpdateProfileResponse
@@ -79,4 +80,16 @@ interface ApiService {
 
     @GET("event/donate/list")
     suspend fun getHistoryDonate(): EventResponse
+
+    @GET("event/list/created-events")
+    suspend fun getMyEvent(): MyEventResponse
+
+    @Multipart
+    @POST("/event/laporan/create")
+    suspend fun createReport(
+        @Part("kendala") kendala: RequestBody,
+        @Part("jumlah_volunteer") jumlahVolunteer: Int,
+        @Part("id_event") idEvent: RequestBody,
+        @Part fotoLaporan: List<MultipartBody.Part>
+    ): EventMessageResponse
 }

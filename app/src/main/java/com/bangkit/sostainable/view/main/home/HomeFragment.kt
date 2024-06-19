@@ -21,6 +21,7 @@ import com.bangkit.sostainable.view.main.donate.historyDonate.HistoryDonateActiv
 import com.bangkit.sostainable.view.main.home.adapter.HomeAdapter
 import com.bangkit.sostainable.view.main.home.adapter.LoadingStateAdapter
 import com.bangkit.sostainable.view.main.joinVolunter.JoinVolunterActivity
+import com.bangkit.sostainable.view.main.myEvent.MyEventActivity
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -73,12 +74,10 @@ class HomeFragment : Fragment() {
                     startActivity(Intent(requireContext(), BookmarkActivity::class.java))
                     true
                 }
-                /**
-                R.id.navigation_notification -> {
-                    startActivity(Intent(this, NotificationActivity::class.java))
+                R.id.navigation_event -> {
+                    startActivity(Intent(requireContext(), MyEventActivity::class.java))
                     true
                 }
-                */
                 R.id.navigation_joinEvent -> {
                     startActivity(Intent(requireContext(), JoinVolunterActivity::class.java))
                     true

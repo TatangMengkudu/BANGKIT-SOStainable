@@ -6,9 +6,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sostainable.data.injection.InjectionEvent
 import com.bangkit.sostainable.data.repository.event.EventRepository
 import com.bangkit.sostainable.view.main.create.CreateViewModel
+import com.bangkit.sostainable.view.main.createReport.CreateReportViewModel
 import com.bangkit.sostainable.view.main.detail.DetailViewModel
 import com.bangkit.sostainable.view.main.donate.DonateViewModel
 import com.bangkit.sostainable.view.main.home.HomeViewModel
+import com.bangkit.sostainable.view.main.myEvent.MyEventViewModel
 
 class EventModelFactory(
     private val eventRepository: EventRepository
@@ -32,6 +34,16 @@ class EventModelFactory(
             // TODO: DonateViewModel
             modelClass.isAssignableFrom(DonateViewModel::class.java) -> {
                 DonateViewModel(eventRepository) as T
+            }
+
+            // TODO: CreateReportViewModel
+            modelClass.isAssignableFrom(CreateReportViewModel::class.java) -> {
+                CreateReportViewModel(eventRepository) as T
+            }
+
+            // TODO: MyEventViewModel
+            modelClass.isAssignableFrom(MyEventViewModel::class.java) -> {
+                MyEventViewModel(eventRepository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

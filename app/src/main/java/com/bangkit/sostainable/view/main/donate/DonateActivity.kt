@@ -19,13 +19,11 @@ import com.bangkit.sostainable.data.factory.EventModelFactory
 import com.bangkit.sostainable.data.factory.HistoryDonateFactory
 import com.bangkit.sostainable.data.json.DonateJson
 import com.bangkit.sostainable.data.local.room.entities.HistoryDonateEvent
-import com.bangkit.sostainable.data.local.room.entities.JoinEvent
-import com.bangkit.sostainable.data.remote.response.event.detail.Data
-import com.bangkit.sostainable.databinding.ActivityDonateBinding
-import com.bumptech.glide.Glide
 import com.bangkit.sostainable.data.utils.Result
+import com.bangkit.sostainable.databinding.ActivityDonateBinding
 import com.bangkit.sostainable.view.main.detail.DetailActivity
 import com.bangkit.sostainable.view.main.donate.historyDonate.HistoryDonateViewModel
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar

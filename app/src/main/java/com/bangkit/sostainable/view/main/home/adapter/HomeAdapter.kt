@@ -38,19 +38,11 @@ class HomeAdapter : PagingDataAdapter<DataItem, HomeAdapter.HomeViewHolder>(DIFF
     class HomeViewHolder(private val binding: ItemEventBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(event: DataItem) {
             binding.apply {
-                // Foto Lokasi
                 event.fotoLokasi?.let { url ->
                     Glide.with(root.context)
                         .load(url)
                         .into(ivEvent)
                 }
-                /** Foto User
-                event.fotoUser?.let { url ->
-                    Glide.with(root.context)
-                        .load(url)
-                        .into(ivUser)
-                }
-                */
                 tvTitleEvent.text = event.judulEvent
                 tvDescEvent.text = event.deskripsi
             }

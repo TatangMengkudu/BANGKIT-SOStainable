@@ -1,6 +1,6 @@
 package com.bangkit.sostainable.view.main.create
 
-import  android.Manifest
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
@@ -35,12 +35,9 @@ import com.bangkit.sostainable.data.utils.reduceFileImage
 import com.bangkit.sostainable.data.utils.uriToFile
 import com.bangkit.sostainable.databinding.ActivityCreateBinding
 import com.bangkit.sostainable.view.main.MainActivity
-import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import java.io.IOException

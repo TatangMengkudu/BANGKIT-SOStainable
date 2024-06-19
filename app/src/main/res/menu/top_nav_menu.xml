@@ -7,8 +7,8 @@
         android:title="@string/bookmark"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/navigation_notification"
-        android:icon="@drawable/notification_icon"
+        android:id="@+id/navigation_event"
+        android:icon="@drawable/ic_event"
         android:title="@string/notification"
         app:showAsAction="ifRoom"/>
 

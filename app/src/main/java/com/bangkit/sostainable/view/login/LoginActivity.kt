@@ -1,8 +1,10 @@
 package com.bangkit.sostainable.view.login
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -18,7 +20,6 @@ import com.bangkit.sostainable.data.local.datastore.model.LoginSession
 import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.ActivityLoginBinding
 import com.bangkit.sostainable.view.main.MainActivity
-import com.bangkit.sostainable.view.main.MainViewModel
 import com.bangkit.sostainable.view.register.RegisterActivity
 import kotlinx.coroutines.launch
 
@@ -27,9 +28,7 @@ class LoginActivity : AppCompatActivity() {
     private val loginViewModel: LoginViewModel by viewModels {
         AuthModelFactory.getInstance(this)
     }
-    private val userSession: MainViewModel by viewModels {
-        AuthModelFactory.getInstance(this)
-    }
+    private var isPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,9 +52,22 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupAction() {
         // MOVE TO REGISTER PAGE
         moveRegister()
+
+        // SHOW/HIDE PASSWORD
+        binding.edtPassword.setOnTouchListener { _, event ->
+            val DRAWABLE_END = 2
+            if (event.action == android.view.MotionEvent.ACTION_UP) {
+                if (event.rawX >= (binding.edtPassword.right - binding.edtPassword.compoundDrawables[DRAWABLE_END].bounds.width())) {
+                    showHidePass()
+                    return@setOnTouchListener true
+                }
+            }
+            false
+        }
 
         // LOGIN
         binding.loginButton.setOnClickListener {
@@ -125,5 +137,21 @@ class LoginActivity : AppCompatActivity() {
             message,
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    private fun showHidePass() {
+        // TODO: Buatkan function ketika user menekan icon drawable eye akan muncul password
+        if (isPasswordVisible) {
+            // Hide Password
+            binding.edtPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            binding.edtPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.visibility_icon, 0)
+        } else {
+            // Show Password
+            binding.edtPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            binding.edtPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.visibility_off_icon, 0)
+        }
+        // Move cursor to end
+        binding.edtPassword.setSelection(binding.edtPassword.text!!.length)
+        isPasswordVisible = !isPasswordVisible
     }
 }

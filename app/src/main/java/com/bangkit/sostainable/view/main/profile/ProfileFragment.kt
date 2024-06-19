@@ -202,7 +202,7 @@ class ProfileFragment : Fragment() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Pilih Bank")
 
-        builder.setItems(options) { dialog, which ->
+        builder.setItems(options) { _, which ->
             binding.edtNamaBank.text = options[which].toEditable()
         }
 

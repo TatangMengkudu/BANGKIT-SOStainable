@@ -1,5 +1,6 @@
 package com.bangkit.sostainable.view.register
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
@@ -7,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.util.Patterns
 import android.view.View
 import android.view.WindowInsets
@@ -35,6 +37,8 @@ class RegisterActivity : AppCompatActivity() {
         AuthModelFactory.getInstance(this)
     }
     private val calender = Calendar.getInstance()
+    private var isPasswordVisible = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -57,6 +61,7 @@ class RegisterActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupAction() {
         // MOVE TO LOGIN PAGE
         moveLogin()
@@ -81,6 +86,29 @@ class RegisterActivity : AppCompatActivity() {
             setOnClickListener {
                 selectBank()
             }
+        }
+
+        // SHOW/HIDE PASSWORD
+        binding.edtPassword.setOnTouchListener { _, event ->
+            val DRAWABLE_END = 2
+            if (event.action == android.view.MotionEvent.ACTION_UP) {
+                if (event.rawX >= (binding.edtPassword.right - binding.edtPassword.compoundDrawables[DRAWABLE_END].bounds.width())) {
+                    showHidePass()
+                    return@setOnTouchListener true
+                }
+            }
+            false
+        }
+
+        binding.edtConfirmPassword.setOnTouchListener { _, event ->
+            val DRAWABLE_END = 2
+            if (event.action == android.view.MotionEvent.ACTION_UP) {
+                if (event.rawX >= (binding.edtConfirmPassword.right - binding.edtConfirmPassword.compoundDrawables[DRAWABLE_END].bounds.width())) {
+                    showHideConfirmPass()
+                    return@setOnTouchListener true
+                }
+            }
+            false
         }
 
         // REGISTER
@@ -209,10 +237,42 @@ class RegisterActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Pilih Bank")
 
-        builder.setItems(options) { dialog, which ->
+        builder.setItems(options) { _, which ->
             binding.edtNamaBank.text = options[which].toEditable()
         }
 
         builder.show()
+    }
+
+    private fun showHidePass() {
+        // TODO: Buatkan function ketika user menekan icon drawable eye akan muncul password
+        if (isPasswordVisible) {
+            // Hide Password
+            binding.edtPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            binding.edtPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.visibility_icon, 0)
+        } else {
+            // Show Password
+            binding.edtPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            binding.edtPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.visibility_off_icon, 0)
+        }
+        // Move cursor to end
+        binding.edtPassword.setSelection(binding.edtPassword.text!!.length)
+        isPasswordVisible = !isPasswordVisible
+    }
+
+    private fun showHideConfirmPass() {
+        // TODO: Buatkan function ketika user menekan icon drawable eye akan muncul password
+        if (isPasswordVisible) {
+            // Hide Password
+            binding.edtConfirmPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            binding.edtConfirmPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.visibility_icon, 0)
+        } else {
+            // Show Password
+            binding.edtConfirmPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            binding.edtConfirmPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.visibility_off_icon, 0)
+        }
+        // Move cursor to end
+        binding.edtConfirmPassword.setSelection(binding.edtConfirmPassword.text!!.length)
+        isPasswordVisible = !isPasswordVisible
     }
 }

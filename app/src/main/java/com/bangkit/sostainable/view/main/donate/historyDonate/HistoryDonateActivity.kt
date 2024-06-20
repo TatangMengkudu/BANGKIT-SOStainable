@@ -1,22 +1,17 @@
 package com.bangkit.sostainable.view.main.donate.historyDonate
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bangkit.sostainable.R
 import com.bangkit.sostainable.data.factory.HistoryDonateFactory
 import com.bangkit.sostainable.data.local.room.entities.HistoryDonateEvent
-import com.bangkit.sostainable.data.local.room.entities.JoinEvent
 import com.bangkit.sostainable.databinding.ActivityHistoryDonateBinding
+import com.bangkit.sostainable.view.main.MainActivity
 import com.bangkit.sostainable.view.main.donate.historyDonate.adapter.HistoryDonateAdapter
-import com.bangkit.sostainable.view.main.joinVolunter.adapter.JoinEventAdapter
 
 class HistoryDonateActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHistoryDonateBinding
@@ -43,6 +38,8 @@ class HistoryDonateActivity : AppCompatActivity() {
 
         adapter = HistoryDonateAdapter()
         binding.rvHistoryDonateEvent.adapter = adapter
+
+        moveBack()
     }
 
     private fun observeViewModel() {
@@ -65,6 +62,15 @@ class HistoryDonateActivity : AppCompatActivity() {
             adapter.submitList(event)
         } else {
             Log.d("HistoryDonateActivity", "Event list is empty")
+        }
+    }
+
+    private fun moveBack() {
+        binding.icBack.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
         }
     }
 }

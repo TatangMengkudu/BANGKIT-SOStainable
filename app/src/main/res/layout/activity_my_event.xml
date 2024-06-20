@@ -34,7 +34,7 @@
                     android:id="@+id/topAppBar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:title="My Event"
+                    app:title="@string/my_event"
                     app:titleTextColor="@color/white" />
             </LinearLayout>
         </com.google.android.material.appbar.AppBarLayout>

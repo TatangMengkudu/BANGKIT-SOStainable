@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
@@ -7,571 +7,568 @@
     android:layout_height="match_parent"
     tools:context=".view.main.create.CreateActivity"
     tools:ignore="SpeakableTextPresentCheck">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="20dp">
+            android:layout_height="match_parent" >
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guidelineTop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="20dp" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guidelineVerticalLeft"
-                android:layout_width="wrap_content"
-                android:layout_height="64dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintGuide_begin="20dp"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guidelineVerticalRight"
-                android:layout_width="wrap_content"
-                android:layout_height="64dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintGuide_end="20dp"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <LinearLayout
-                android:id="@+id/buttonBack"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintTop_toBottomOf="@+id/guidelineTop"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight">
+                android:paddingBottom="20dp">
 
-                <TextView
-                    android:id="@+id/ic_back"
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineTop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/back"
-                    android:drawableStart="@drawable/arrow_back"
-                    android:drawableTint="@color/black"
-                    android:drawablePadding="4dp"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/poppins_bold"/>
-            </LinearLayout>
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="20dp" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:text="@string/image"
-                android:textSize="15sp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineVerticalLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintGuide_begin="20dp"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/ly_addImage"
-                android:layout_marginTop="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/textView3"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft">
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineVerticalRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintGuide_end="20dp"
+                    app:layout_constraintStart_toStartOf="parent" />
+
                 <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:cardCornerRadius="5dp">
-                        <ImageView
-                            android:id="@+id/iv_image1"
-                            android:layout_width="95dp"
-                            android:layout_height="85dp"
-                            tools:src="@drawable/iv_news"
-                            android:scaleType="centerCrop"
-                            />
-                    </androidx.cardview.widget.CardView>
-                    <TextView
-                        android:id="@+id/add_image1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/add"
-                        android:fontFamily="@font/poppins"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:cardCornerRadius="5dp">
-                        <ImageView
-                            android:id="@+id/iv_image2"
-                            android:layout_width="95dp"
-                            android:layout_height="85dp"
-                            tools:src="@drawable/iv_news"
-                            android:scaleType="centerCrop"
-                            />
-                    </androidx.cardview.widget.CardView>
-                    <TextView
-                        android:id="@+id/add_image2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/add"
-                        android:fontFamily="@font/poppins"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:cardCornerRadius="5dp">
-                        <ImageView
-                            android:id="@+id/iv_image3"
-                            android:layout_width="95dp"
-                            android:layout_height="85dp"
-                            tools:src="@drawable/iv_news"
-                            android:scaleType="centerCrop"
-                            />
-                    </androidx.cardview.widget.CardView>
-                    <TextView
-                        android:id="@+id/add_image3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/add"
-                        android:fontFamily="@font/poppins"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_marginTop="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/title"
-                android:textSize="15sp"
-                android:fontFamily="@font/poppins_bold"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/ly_addImage"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/formTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_title"
+                    android:id="@+id/buttonBack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/title"
-                    android:fontFamily="@font/poppins"
-                    android:textColorHint="@color/textGreyColor"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_tipeLokasi"
-                android:layout_marginTop="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/tipe_lokasi"
-                android:textSize="15sp"
-                android:fontFamily="@font/poppins_bold"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/formTitle"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/formTipeLokasi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/tv_tipeLokasi">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_tipeLokasi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/tipe_lokasi"
-                    android:fontFamily="@font/poppins"
-                    android:textColorHint="@color/textGreyColor"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_desc"
-                android:layout_marginTop="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/description"
-                android:textSize="15sp"
-                android:fontFamily="@font/poppins_bold"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/formTipeLokasi"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/formDesc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/tv_desc">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:hint="@string/description"
-                    android:fontFamily="@font/poppins"
-                    android:textColorHint="@color/textGreyColor"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <LinearLayout
-                android:id="@id/ly_date"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/formDesc">
-                <TextView
-                    android:id="@+id/tv_startDate"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/start_date"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/poppins_bold"/>
-                <TextView
-                    android:id="@+id/tv_endDate"
-                    android:layout_weight="1"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/end_date"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/poppins_bold"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ly_formDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/ly_date">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/formStartdate"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
-                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_desc">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edt_startDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/yy_mm_dd"
-                        android:textSize="15sp"
-                        android:fontFamily="@font/poppins"
-                        android:textColorHint="@color/textGreyColor"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <ImageView
-                    android:id="@+id/ic_startDate"
-                    android:layout_marginStart="10dp"
-                    android:layout_width="34dp"
-                    android:layout_height="34dp"
-                    android:src="@drawable/ic_date"
-                    android:layout_gravity="center"/>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/formEndDate"
-                    android:layout_width="115dp"
+                    android:orientation="horizontal"
                     android:layout_marginStart="20dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
-                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_desc">
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/guidelineTop"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edt_endDate"
-                        android:layout_width="115dp"
+                    <TextView
+                        android:id="@+id/ic_back"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:hint="@string/yy_mm_dd"
-                        android:textColorHint="@color/textGreyColor"
-                        android:textSize="15sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-                <ImageView
-                    android:id="@+id/ic_endDate"
-                    android:layout_marginStart="10dp"
-                    android:layout_width="34dp"
-                    android:layout_height="34dp"
-                    android:src="@drawable/ic_date"
-                    android:layout_gravity="center"/>
-            </LinearLayout>
+                        android:text="@string/back"
+                        android:drawableStart="@drawable/arrow_back"
+                        android:drawableTint="@color/black"
+                        android:drawablePadding="4dp"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/poppins_bold"/>
+                </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ly_time"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/ly_formDate">
                 <TextView
-                    android:id="@+id/tv_startTime"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
+                    android:id="@+id/textView3"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/start_time"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/image"
                     android:textSize="15sp"
-                    android:fontFamily="@font/poppins_bold"/>
-                <TextView
-                    android:id="@+id/tv_endClock"
-                    android:layout_weight="1"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
+
+                <LinearLayout
+                    android:id="@+id/ly_addImage"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/end_time"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/poppins_bold"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ly_formTime"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/ly_time">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/formStartTime"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
-                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_desc">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edt_startTime"
-                        android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft">
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/hh_mm"
-                        android:textSize="15sp"
-                        android:fontFamily="@font/poppins"
-                        android:textColorHint="@color/textGreyColor"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <ImageView
-                    android:id="@+id/ic_startTime"
-                    android:layout_marginStart="10dp"
-                    android:layout_width="34dp"
-                    android:layout_height="34dp"
-                    android:src="@drawable/ic_time"
-                    android:layout_gravity="center"/>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/formEndTime"
-                    android:layout_width="115dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
-                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_desc">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edt_endTime"
-                        android:layout_width="match_parent"
+                        android:orientation="vertical">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:cardCornerRadius="5dp">
+                            <ImageView
+                                android:id="@+id/iv_image1"
+                                android:layout_width="95dp"
+                                android:layout_height="85dp"
+                                tools:src="@drawable/iv_news"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:id="@+id/add_image1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add"
+                            android:fontFamily="@font/poppins"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/hh_mm"
-                        android:textSize="15sp"
-                        android:fontFamily="@font/poppins"
-                        android:textColorHint="@color/textGreyColor"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <ImageView
-                    android:id="@+id/ic_endTime"
-                    android:layout_marginStart="10dp"
-                    android:layout_width="34dp"
-                    android:layout_height="34dp"
-                    android:src="@drawable/ic_time"
-                    android:layout_gravity="center"/>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_donate"
-                android:layout_marginTop="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/how_many_donations_you_want_to_achieve"
-                android:textSize="15sp"
-                android:fontFamily="@font/poppins_bold"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/ly_formTime"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/formDonate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/tv_donate">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_donate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/rp_10_000_000"
-                    android:fontFamily="@font/poppins"
-                    android:textColorHint="@color/textGreyColor"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_volunteer"
-                android:layout_marginTop="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/how_many_volunteer_you_want"
-                android:textSize="15sp"
-                android:fontFamily="@font/poppins_bold"
-                app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/formDonate"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/formVolunteer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/tv_volunteer">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_volunteer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/_200"
-                    android:fontFamily="@font/poppins"
-                    android:textColorHint="@color/textGreyColor"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <LinearLayout
-                android:id="@+id/ly_checkLocation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-                app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
-                app:layout_constraintTop_toBottomOf="@+id/formVolunteer">
+                        android:orientation="vertical">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:cardCornerRadius="5dp">
+                            <ImageView
+                                android:id="@+id/iv_image2"
+                                android:layout_width="95dp"
+                                android:layout_height="85dp"
+                                tools:src="@drawable/iv_news"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:id="@+id/add_image2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add"
+                            android:fontFamily="@font/poppins"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:cardCornerRadius="5dp">
+                            <ImageView
+                                android:id="@+id/iv_image3"
+                                android:layout_width="95dp"
+                                android:layout_height="85dp"
+                                tools:src="@drawable/iv_news"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:id="@+id/add_image3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add"
+                            android:fontFamily="@font/poppins"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tv_Location"
+                    android:id="@+id/tv_title"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/location"
-                    android:layout_weight="2"
+                    android:text="@string/title"
                     android:textSize="15sp"
                     android:fontFamily="@font/poppins_bold"
-                    android:layout_width="0dp" />
-                <TextView
-                    android:id="@+id/tv_getLocation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/include_location"
-                    android:fontFamily="@font/poppins"/>
-                <CheckBox
-                    android:id="@+id/locationCheckbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false" />
-            </LinearLayout>
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/ly_addImage"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/formLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
-                app:layout_constraintTop_toBottomOf="@+id/ly_checkLocation">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_location"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/formTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/location"
-                    android:fontFamily="@font/poppins"
-                    android:textColorHint="@color/textGreyColor"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title">
 
-            <Button
-                android:id="@+id/button_donate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/upload"
-                android:textSize="17sp"
-                android:textColor="@color/white"
-                android:background="@drawable/custom_button"
-                app:backgroundTint="@color/black"
-                android:fontFamily="@font/poppins_bold"
-                app:layout_constraintTop_toBottomOf="@+id/formLocation"
-                app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
-                app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/title"
+                        android:fontFamily="@font/poppins"
+                        android:textColorHint="@color/textGreyColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                android:backgroundTint="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.093"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                tools:visibility="visible" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+                <TextView
+                    android:id="@+id/tv_tipeLokasi"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tipe_lokasi"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/formTitle"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/formTipeLokasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tipeLokasi">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_tipeLokasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/tipe_lokasi"
+                        android:fontFamily="@font/poppins"
+                        android:textColorHint="@color/textGreyColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_desc"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/formTipeLokasi"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/formDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_desc">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:hint="@string/description"
+                        android:fontFamily="@font/poppins"
+                        android:textColorHint="@color/textGreyColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@id/ly_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/formDesc">
+                    <TextView
+                        android:id="@+id/tv_startDate"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/start_date"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/poppins_bold"/>
+                    <TextView
+                        android:id="@+id/tv_endDate"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/end_date"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/poppins_bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_formDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/ly_date">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/formStartdate"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+                        app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_desc">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_startDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/yy_mm_dd"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/poppins"
+                            android:textColorHint="@color/textGreyColor"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <ImageView
+                        android:id="@+id/ic_startDate"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/ic_date"
+                        android:layout_gravity="center"/>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/formEndDate"
+                        android:layout_width="130dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+                        app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_desc">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_endDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:hint="@string/yy_mm_dd"
+                            android:textColorHint="@color/textGreyColor"
+                            android:textSize="15sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <ImageView
+                        android:id="@+id/ic_endDate"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/ic_date"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/ly_formDate">
+                    <TextView
+                        android:id="@+id/tv_startTime"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/start_time"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/poppins_bold"/>
+                    <TextView
+                        android:id="@+id/tv_endClock"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/end_time"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/poppins_bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_formTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/ly_time">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/formStartTime"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+                        app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_desc">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_startTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/hh_mm"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/poppins"
+                            android:textColorHint="@color/textGreyColor"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <ImageView
+                        android:id="@+id/ic_startTime"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/ic_time"
+                        android:layout_gravity="center"/>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/formEndTime"
+                        android:layout_width="130dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+                        app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_desc">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_endTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/hh_mm"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/poppins"
+                            android:textColorHint="@color/textGreyColor"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <ImageView
+                        android:id="@+id/ic_endTime"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/ic_time"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_donate"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/how_many_donations_you_want_to_achieve"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/ly_formTime"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/formDonate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_donate">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_donate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/rp_10_000_000"
+                        android:fontFamily="@font/poppins"
+                        android:textColorHint="@color/textGreyColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_volunteer"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/how_many_volunteer_you_want"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/formDonate"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/formVolunteer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_volunteer">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_volunteer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/_200"
+                        android:fontFamily="@font/poppins"
+                        android:textColorHint="@color/textGreyColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_checkLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintTop_toBottomOf="@+id/formVolunteer">
+
+                    <TextView
+                        android:id="@+id/tv_Location"
+                        android:layout_height="wrap_content"
+                        android:text="@string/location"
+                        android:layout_weight="2"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:layout_width="0dp" />
+                    <TextView
+                        android:id="@+id/tv_getLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/include_location"
+                        android:fontFamily="@font/poppins"/>
+                    <CheckBox
+                        android:id="@+id/locationCheckbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false" />
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/formLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/ly_checkLocation">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/location"
+                        android:fontFamily="@font/poppins"
+                        android:textColorHint="@color/textGreyColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/button_donate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/upload"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/custom_button"
+                    app:backgroundTint="@color/black"
+                    android:fontFamily="@font/poppins_bold"
+                    app:layout_constraintTop_toBottomOf="@+id/formLocation"
+                    app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
+                    app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

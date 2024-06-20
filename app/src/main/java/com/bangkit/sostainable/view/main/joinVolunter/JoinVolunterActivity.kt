@@ -1,5 +1,6 @@
 package com.bangkit.sostainable.view.main.joinVolunter
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.sostainable.data.factory.JoinEventFactory
 import com.bangkit.sostainable.data.local.room.entities.JoinEvent
 import com.bangkit.sostainable.databinding.ActivityJoinVolunterBinding
+import com.bangkit.sostainable.view.main.MainActivity
 import com.bangkit.sostainable.view.main.joinVolunter.adapter.JoinEventAdapter
 
 class JoinVolunterActivity : AppCompatActivity() {
@@ -32,6 +34,8 @@ class JoinVolunterActivity : AppCompatActivity() {
         binding.rvJoinEvent.layoutManager = layoutManager
         val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
         binding.rvJoinEvent.addItemDecoration(itemDecoration)
+
+        moveBack()
     }
 
     private fun showEventsData (event: List<JoinEvent>) {
@@ -47,5 +51,14 @@ class JoinVolunterActivity : AppCompatActivity() {
 
     private fun showSelectedEvent(event: JoinEvent){
         Toast.makeText(this, event.title, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun moveBack() {
+        binding.icBack.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
+        }
     }
 }

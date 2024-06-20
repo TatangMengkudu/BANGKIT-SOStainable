@@ -32,7 +32,7 @@
                     android:id="@+id/topAppBar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:title="History Donate"
+                    app:title="@string/history_donate"
                     app:titleTextColor="@color/white" />
             </LinearLayout>
         </com.google.android.material.appbar.AppBarLayout>

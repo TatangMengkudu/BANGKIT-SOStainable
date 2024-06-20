@@ -48,7 +48,7 @@
             android:id="@+id/ic_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
+            android:text="@string/back"
             android:drawableStart="@drawable/arrow_back"
             android:drawableTint="@color/black"
             android:drawablePadding="4dp"
@@ -61,7 +61,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:text="Image"
+        android:text="@string/image"
         android:textSize="15sp"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
@@ -99,7 +99,7 @@
                 android:id="@+id/add_image1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add +"
+                android:text="@string/add"
                 android:fontFamily="@font/poppins"
                 android:layout_gravity="center"/>
         </LinearLayout>
@@ -125,7 +125,7 @@
                 android:id="@+id/add_image2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add +"
+                android:text="@string/add"
                 android:fontFamily="@font/poppins"
                 android:layout_gravity="center"/>
         </LinearLayout>
@@ -136,7 +136,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Kendala"
+        android:text="@string/kendala"
         android:textSize="15sp"
         android:fontFamily="@font/poppins_bold"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
@@ -157,7 +157,7 @@
             android:id="@+id/edt_kendala"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Kendala"
+            android:hint="@string/kendala"
             android:fontFamily="@font/poppins"
             android:textColorHint="@color/textGreyColor"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -167,7 +167,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Jumlah Volunteer"
+        android:text="@string/jumlah_volunteer"
         android:textSize="15sp"
         android:fontFamily="@font/poppins_bold"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
@@ -188,7 +188,7 @@
             android:id="@+id/edt_jlmVolunteer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Jumlah Volunteer"
+            android:hint="@string/jumlah_volunteer"
             android:fontFamily="@font/poppins"
             android:textColorHint="@color/textGreyColor"/>
     </com.google.android.material.textfield.TextInputLayout>

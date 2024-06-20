@@ -31,26 +31,6 @@
                 app:titleTextColor="@color/white" />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <EditText
-            android:id="@+id/searchBar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/custom_edit_text"
-            android:drawableStart="@drawable/search_icon"
-            android:drawablePadding="8dp"
-            android:fontFamily="@font/poppins"
-            android:hint="Search location"
-            android:importantForAutofill="no"
-            android:paddingStart="10dp"
-            android:textColor="@color/textGreyColor"
-            app:layout_constraintEnd_toEndOf="@+id/rv_events"
-            app:layout_constraintStart_toStartOf="@+id/rv_events"
-            app:layout_constraintTop_toBottomOf="@+id/appBar"
-            tools:ignore="HardcodedText,RtlSymmetry,TextContrastCheck,TextFields,VisualLintTextFieldSize" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_events"
             android:layout_width="0dp"
@@ -63,7 +43,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchBar"/>
+            app:layout_constraintTop_toBottomOf="@+id/appBar"/>
 
         <ProgressBar
             android:id="@+id/progressBar"

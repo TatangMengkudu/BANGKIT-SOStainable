@@ -213,7 +213,7 @@ class ProfileFragment : Fragment() {
         val datePicker = DatePickerDialog(requireContext(), { _, year: Int, month: Int, dayOfMonth: Int ->
             val selectedDate = Calendar.getInstance()
             selectedDate.set(year, month, dayOfMonth)
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
             val formattedDate = dateFormat.format(selectedDate.time)
             binding.edtTglLahir.text = formattedDate.toEditable()
         },

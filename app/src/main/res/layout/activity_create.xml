@@ -53,7 +53,7 @@
                 android:id="@+id/ic_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Back"
+                android:text="@string/back"
                 android:drawableStart="@drawable/arrow_back"
                 android:drawableTint="@color/black"
                 android:drawablePadding="4dp"
@@ -66,7 +66,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
-            android:text="Image"
+            android:text="@string/image"
             android:textSize="15sp"
             android:layout_marginTop="15dp"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
@@ -104,7 +104,7 @@
                     android:id="@+id/add_image1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add +"
+                    android:text="@string/add"
                     android:fontFamily="@font/poppins"
                     android:layout_gravity="center"/>
             </LinearLayout>
@@ -130,7 +130,7 @@
                     android:id="@+id/add_image2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add +"
+                    android:text="@string/add"
                     android:fontFamily="@font/poppins"
                     android:layout_gravity="center"/>
             </LinearLayout>
@@ -156,7 +156,7 @@
                     android:id="@+id/add_image3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add +"
+                    android:text="@string/add"
                     android:fontFamily="@font/poppins"
                     android:layout_gravity="center"/>
             </LinearLayout>
@@ -167,7 +167,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="@string/title"
             android:textSize="15sp"
             android:fontFamily="@font/poppins_bold"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
@@ -188,7 +188,7 @@
                 android:id="@+id/edt_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Title"
+                android:hint="@string/title"
                 android:fontFamily="@font/poppins"
                 android:textColorHint="@color/textGreyColor"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -198,7 +198,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Tipe Lokasi"
+            android:text="@string/tipe_lokasi"
             android:textSize="15sp"
             android:fontFamily="@font/poppins_bold"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
@@ -219,7 +219,7 @@
                 android:id="@+id/edt_tipeLokasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tipe Lokasi"
+                android:hint="@string/tipe_lokasi"
                 android:fontFamily="@font/poppins"
                 android:textColorHint="@color/textGreyColor"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -229,7 +229,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Description"
+            android:text="@string/description"
             android:textSize="15sp"
             android:fontFamily="@font/poppins_bold"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
@@ -250,7 +250,7 @@
                 android:id="@+id/edt_description"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:hint="Description"
+                android:hint="@string/description"
                 android:fontFamily="@font/poppins"
                 android:textColorHint="@color/textGreyColor"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -269,7 +269,7 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Start Date"
+                android:text="@string/start_date"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"/>
             <TextView
@@ -279,7 +279,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="End Date"
+                android:text="@string/end_date"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"/>
         </LinearLayout>
@@ -305,7 +305,7 @@
                     android:id="@+id/edt_startDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="DD/MM/YY"
+                    android:hint="@string/yy_mm_dd"
                     android:textSize="15sp"
                     android:fontFamily="@font/poppins"
                     android:textColorHint="@color/textGreyColor"/>
@@ -330,7 +330,7 @@
                     android:id="@+id/edt_endDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="DD/MM/YY"
+                    android:hint="@string/yy_mm_dd"
                     android:textSize="15sp"
                     android:fontFamily="@font/poppins"
                     android:textColorHint="@color/textGreyColor"/>
@@ -358,7 +358,7 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Start Time"
+                android:text="@string/start_time"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"/>
             <TextView
@@ -368,7 +368,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="End Time"
+                android:text="@string/end_time"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"/>
         </LinearLayout>
@@ -394,7 +394,7 @@
                     android:id="@+id/edt_startTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="HH:MM"
+                    android:hint="@string/hh_mm"
                     android:textSize="15sp"
                     android:fontFamily="@font/poppins"
                     android:textColorHint="@color/textGreyColor"/>
@@ -419,7 +419,7 @@
                     android:id="@+id/edt_endTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="HH:MM"
+                    android:hint="@string/hh_mm"
                     android:textSize="15sp"
                     android:fontFamily="@font/poppins"
                     android:textColorHint="@color/textGreyColor"/>
@@ -438,7 +438,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="How many donations you want to achieve?"
+            android:text="@string/how_many_donations_you_want_to_achieve"
             android:textSize="15sp"
             android:fontFamily="@font/poppins_bold"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
@@ -459,7 +459,7 @@
                 android:id="@+id/edt_donate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Rp 10.000.000"
+                android:hint="@string/rp_10_000_000"
                 android:fontFamily="@font/poppins"
                 android:textColorHint="@color/textGreyColor"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -469,7 +469,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="How many volunteer you want?"
+            android:text="@string/how_many_volunteer_you_want"
             android:textSize="15sp"
             android:fontFamily="@font/poppins_bold"
             app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalRight"
@@ -490,7 +490,7 @@
                 android:id="@+id/edt_volunteer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="200"
+                android:hint="@string/_200"
                 android:fontFamily="@font/poppins"
                 android:textColorHint="@color/textGreyColor"/>
         </com.google.android.material.textfield.TextInputLayout>

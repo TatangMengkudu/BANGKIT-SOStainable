@@ -108,6 +108,7 @@ class DetailActivity : AppCompatActivity() {
                     binding.clockEndEvent.text = result.data.data?.jamSelesai
                     binding.locationEvent.text = result.data.data?.alamat
                     binding.detailDescription.text = result.data.data?.deskripsiEvent
+                    binding.tvUsername.text = result.data.data?.pembuatEvent
                     Glide.with(binding.imageView.context)
                         .load(result.data.data?.fotoLokasi?.get(0))
                         .into(binding.imageView)

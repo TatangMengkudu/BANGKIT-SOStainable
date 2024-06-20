@@ -1,6 +1,7 @@
 package com.bangkit.sostainable.view.main.myEvent
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -13,6 +14,7 @@ import com.bangkit.sostainable.data.factory.EventModelFactory
 import com.bangkit.sostainable.data.remote.response.event.ListEventItem
 import com.bangkit.sostainable.data.utils.Result
 import com.bangkit.sostainable.databinding.ActivityMyEventBinding
+import com.bangkit.sostainable.view.main.MainActivity
 import com.bangkit.sostainable.view.main.myEvent.adapter.MyEventAdapter
 import kotlinx.coroutines.launch
 
@@ -26,6 +28,12 @@ class MyEventActivity : AppCompatActivity() {
         binding = ActivityMyEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupView()
+        binding.icBack.setOnClickListener {
+            val intent = Intent(this@MyEventActivity, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun setupView(){

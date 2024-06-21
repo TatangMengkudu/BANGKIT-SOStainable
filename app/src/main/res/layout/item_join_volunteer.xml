@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardImageEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_event"
+                android:layout_width="106dp"
+                android:layout_height="83dp"
+                app:srcCompat="@drawable/ic_image" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_titleEvent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins_bold"
+            android:maxLines="1"
+            android:text="@string/membersihkan_pantai_selatan"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/cardImageEvent"
+            app:layout_constraintTop_toTopOf="@id/cardImageEvent"
+            tools:ignore="TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/tv_startDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:maxLines="1"
+            android:text="@string/_15_jun_2024"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/tv_titleEvent"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleEvent" />
+
+        <View
+            android:id="@+id/dividerTime"
+            android:layout_width="8dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/tv_endDate"
+            app:layout_constraintStart_toEndOf="@id/tv_startDate"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleEvent" />
+
+        <TextView
+            android:id="@+id/tv_endDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="10sp"
+            android:text="@string/_16_jun_2024"
+            android:fontFamily="@font/poppins_medium"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
+            app:layout_constraintTop_toTopOf="@id/tv_startDate"
+            app:layout_constraintStart_toEndOf="@id/dividerTime"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleEvent" />
+
+        <TextView
+            android:id="@+id/tv_alamat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/poppins"
+            android:maxLines="1"
+            android:text="@string/bantul_yogyakarta"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineVerticalRight"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/tv_startDate"
+            app:layout_constraintTop_toBottomOf="@id/tv_startDate"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineVerticalRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="115dp" />
+
+        <Button
+            android:id="@+id/btn_cacelJoin"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:backgroundTint="@color/black"
+            android:text="@string/cancel_join"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_endDate"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

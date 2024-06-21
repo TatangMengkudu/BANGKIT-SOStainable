@@ -11,9 +11,15 @@
         android:label="Home"
         tools:layout="@layout/fragment_home" />
 
+    <activity
+        android:id="@+id/navigation_create"
+        android:name="com.bangkit.sostainable.view.main.create.CreateActivity"
+        android:label="activity_create"
+        tools:layout="@layout/activity_create" />
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.bangkit.sostainable.view.main.profile.ProfileFragment"
-        android:label="Profile"
+        android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
 </navigation>

@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".view.main.MainActivity">
 
         <fragment
@@ -14,23 +14,29 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:defaultNavHost="true"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+            app:layout_constraintBottom_toTopOf="@+id/cardBottomNavigation"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:navGraph="@navigation/bottom_navigation" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardBottomNavigation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:itemIconSize="35dp"
-            android:clickable="true"
-            app:labelVisibilityMode="unlabeled"
-            android:background="@drawable/bottom_nav_background"
-            app:menu="@menu/bottom_nav_menu"/>
+            android:layout_gravity="bottom"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            app:cardElevation="20dp">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    app:itemIconSize="30dp"
+                    android:background="@drawable/bottom_nav_background"
+                    app:labelVisibilityMode="unlabeled"
+                    app:menu="@menu/bottom_nav_menu"/>
+        </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

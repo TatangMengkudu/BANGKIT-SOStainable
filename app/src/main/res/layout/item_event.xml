@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    app:cardCornerRadius="8dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardImageNews"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/iv_user">
+
+            <ImageView
+                android:id="@+id/iv_event"
+                android:contentDescription="@string/detailDesc"
+                app:srcCompat="@drawable/iv_news"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/iv_user"
+            android:id="@+id/iv_user"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/cardImageNews"
+            app:layout_constraintTop_toBottomOf="@+id/cardImageNews"/>
+
+        <TextView
+            android:id="@+id/tv_titleEvent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/kegiatan_bersih_lingkungan_jakarta"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:maxLines="1"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="@+id/iv_user"
+            app:layout_constraintStart_toEndOf="@+id/iv_user"
+            app:layout_constraintEnd_toEndOf="@id/cardImageNews"/>
+
+        <TextView
+            android:id="@+id/tv_descEvent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/card_description_image"
+            android:layout_marginTop="5dp"
+            android:maxLines="2"
+            app:layout_constraintTop_toBottomOf="@id/tv_titleEvent"
+            app:layout_constraintStart_toStartOf="@id/tv_titleEvent"
+            app:layout_constraintEnd_toEndOf="@id/tv_titleEvent"
+            tools:ignore="VisualLintLongText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

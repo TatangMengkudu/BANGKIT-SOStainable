@@ -1,60 +1,107 @@
 package com.bangkit.sostainable.view.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.sostainable.R
+import com.bangkit.sostainable.data.factory.AuthModelFactory
+import com.bangkit.sostainable.data.factory.EventModelFactory
+import com.bangkit.sostainable.data.remote.response.event.DataItem
+import com.bangkit.sostainable.databinding.FragmentHomeBinding
+import com.bangkit.sostainable.view.login.LoginActivity
+import com.bangkit.sostainable.view.main.MainViewModel
+import com.bangkit.sostainable.view.main.bookmark.BookmarkActivity
+import com.bangkit.sostainable.view.main.donate.historyDonate.HistoryDonateActivity
+import com.bangkit.sostainable.view.main.home.adapter.HomeAdapter
+import com.bangkit.sostainable.view.main.home.adapter.LoadingStateAdapter
+import com.bangkit.sostainable.view.main.joinVolunter.JoinVolunterActivity
+import com.bangkit.sostainable.view.main.myEvent.MyEventActivity
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private lateinit var binding: FragmentHomeBinding
+    private val homeViewModel: HomeViewModel by viewModels {
+        EventModelFactory.getInstance(requireContext())
     }
+    private val userSession: MainViewModel by viewModels {
+        AuthModelFactory.getInstance(requireContext())
+    }
+    private lateinit var adapter: HomeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setMenuAppBar()
+        checkLogin()
+        getEvents()
+    }
+
+    private fun getEvents() {
+        adapter = HomeAdapter()
+        binding.rvEvents.layoutManager = LinearLayoutManager(context)
+        binding.rvEvents.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter {
+                adapter.retry()
             }
+        )
+        homeViewModel.event.observe(viewLifecycleOwner) {
+            adapter.submitData(lifecycle, it)
+        }
+        adapter.setOnItemClickCallback(object : HomeAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: DataItem) {
+                showSelectedEvent(data)
+            }
+        })
+    }
+
+    private fun setMenuAppBar() {
+        binding.topAppBar.setOnMenuItemClickListener{ menuItem ->
+            when (menuItem.itemId) {
+                R.id.navigation_bookmark -> {
+                    startActivity(Intent(requireContext(), BookmarkActivity::class.java))
+                    true
+                }
+                R.id.navigation_event -> {
+                    startActivity(Intent(requireContext(), MyEventActivity::class.java))
+                    true
+                }
+                R.id.navigation_joinEvent -> {
+                    startActivity(Intent(requireContext(), JoinVolunterActivity::class.java))
+                    true
+                }
+                R.id.navigation_historyEvent -> {
+                    startActivity(Intent(requireContext(), HistoryDonateActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun showSelectedEvent(event: DataItem){
+        Toast.makeText(requireContext(), event.judulEvent, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun checkLogin() {
+        userSession.getSession().observe(viewLifecycleOwner) { result ->
+            if (result.token.isNullOrEmpty()) {
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            }
+        }
     }
 }
